@@ -1,4 +1,3 @@
-[lgs-werkstatt.html](https://github.com/user-attachments/files/28800981/lgs-werkstatt.html)
 <!DOCTYPE html>
 <html lang="de">
 <head>
