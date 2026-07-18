@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schulhilfen | Luca Hauswerth</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Hilfen für Unterricht und Übungsphasen</p>
+      <h1>Schulhilfen</h1>
+      <p class="lead">Wähle Fach, Stufe und Kurs. Die QR-Codes in Präsentationen können direkt auf diese Seiten verweisen.</p>
+    </div>
+    <div class="privacy-note">Öffentlich erreichbar. Keine personenbezogenen Daten eintragen.</div>
+  </header>
+
+  <main class="shell">
+    <nav class="tabs" aria-label="Fachauswahl">
+      <button class="tab is-active" type="button" data-subject="mathematik">Mathematik</button>
+      <button class="tab" type="button" data-subject="sport">Sport</button>
+    </nav>
+
+    <section class="toolbar" aria-label="Auswahl">
+      <label>
+        <span>Stufe</span>
+        <select id="levelSelect"></select>
+      </label>
+      <label>
+        <span>Kurs oder Reihe</span>
+        <select id="courseSelect"></select>
+      </label>
+      <button class="copy-link" type="button" id="copyLink">Link kopieren</button>
+    </section>
+
+    <section id="app" class="content" aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">
+    <a href="lehrkraft-anleitung.md">Pflege-Anleitung</a>
+    <span>Luca Hauswerth</span>
+  </footer>
+
+  <script src="assets/hilfen.js"></script>
+</body>
+</html>
