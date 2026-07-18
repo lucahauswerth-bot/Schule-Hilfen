@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR-Codes | Schulhilfen</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .qr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 1rem; }
+    .qr-card { border: 1px solid var(--line); border-radius: 8px; padding: 1rem; background: #fff; }
+    .qr-card img { width: 100%; max-width: 220px; display: block; margin: .75rem auto; }
+    .qr-card a { overflow-wrap: anywhere; font-size: .88rem; }
+    @media (max-width: 820px) { .qr-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Schulhilfen</p>
+      <h1>QR-Codes</h1>
+      <p class="lead">Diese Codes können direkt in Präsentationen eingefügt oder als Bild geöffnet werden.</p>
+    </div>
+    <div class="privacy-note">Nur öffentliche Hilfeseiten verlinken.</div>
+  </header>
+  <main class="shell">
+    <article class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="crumb"><a href="../">Zurück zu den Schulhilfen</a></p>
+          <h2>Sammlung</h2>
+        </div>
+      </div>
+      <section class="qr-grid">
+        <div class="qr-card"><strong>Übersicht</strong><img src="uebersicht.svg" alt="QR-Code Übersicht"><a href="../">Zielseite öffnen</a></div>
+        <div class="qr-card"><strong>Mathe Klasse 9: Körper</strong><img src="mathe_klasse_09_koerper.svg" alt="QR-Code Mathe Klasse 9 Körper"><a href="../#/mathematik/klasse-09/koerper">Zielseite öffnen</a></div>
+        <div class="qr-card"><strong>Mathe Klasse 10: Quadratische Funktionen</strong><img src="mathe_klasse_10_quadratische_funktionen.svg" alt="QR-Code Mathe Klasse 10 Quadratische Funktionen"><a href="../#/mathematik/klasse-10/quadratische-funktionen">Zielseite öffnen</a></div>
+        <div class="qr-card"><strong>Sport Q1: Badminton</strong><img src="sport_q1_badminton.svg" alt="QR-Code Sport Q1 Badminton"><a href="../#/sport/q1/badminton">Zielseite öffnen</a></div>
+        <div class="qr-card"><strong>Sport Q1: Calisthenics</strong><img src="sport_q1_calisthenics.svg" alt="QR-Code Sport Q1 Calisthenics"><a href="../#/sport/q1/calisthenics">Zielseite öffnen</a></div>
+        <div class="qr-card"><strong>Sport Q1: Roundnet</strong><img src="sport_q1_roundnet.svg" alt="QR-Code Sport Q1 Roundnet"><a href="../#/sport/q1/roundnet">Zielseite öffnen</a></div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

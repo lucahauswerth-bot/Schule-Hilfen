@@ -27,3 +27,12 @@ Die wichtigsten Links sind:
 - Sport Q1 Roundnet: `https://lucahauswerth-bot.github.io/LGS-Werkstatt/schulhilfen/#/sport/q1/roundnet`
 
 In PowerPoint kann aus jedem dieser Links ein QR-Code erstellt werden.
+
+Fertige QR-SVGs liegen zusätzlich unter:
+
+- `schulhilfen/qr/uebersicht.svg`
+- `schulhilfen/qr/mathe_klasse_09_koerper.svg`
+- `schulhilfen/qr/mathe_klasse_10_quadratische_funktionen.svg`
+- `schulhilfen/qr/sport_q1_badminton.svg`
+- `schulhilfen/qr/sport_q1_calisthenics.svg`
+- `schulhilfen/qr/sport_q1_roundnet.svg`
