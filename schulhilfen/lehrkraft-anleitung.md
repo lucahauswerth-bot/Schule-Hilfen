@@ -19,12 +19,12 @@ Diese Seiten sind öffentlich erreichbar. Bitte keine Namen, Klassenlisten, Note
 
 Die wichtigsten Links sind:
 
-- Übersicht: `https://lucahauswerth-bot.github.io/LGS-Werkstatt/schulhilfen/`
-- Mathematik Klasse 9 Körper: `https://lucahauswerth-bot.github.io/LGS-Werkstatt/schulhilfen/#/mathematik/klasse-09/koerper`
-- Mathematik Klasse 10 Quadratische Funktionen: `https://lucahauswerth-bot.github.io/LGS-Werkstatt/schulhilfen/#/mathematik/klasse-10/quadratische-funktionen`
-- Sport Q1 Badminton: `https://lucahauswerth-bot.github.io/LGS-Werkstatt/schulhilfen/#/sport/q1/badminton`
-- Sport Q1 Calisthenics: `https://lucahauswerth-bot.github.io/LGS-Werkstatt/schulhilfen/#/sport/q1/calisthenics`
-- Sport Q1 Roundnet: `https://lucahauswerth-bot.github.io/LGS-Werkstatt/schulhilfen/#/sport/q1/roundnet`
+- Übersicht: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/`
+- Mathematik Klasse 9 Körper: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/mathematik/klasse-09/koerper`
+- Mathematik Klasse 10 Quadratische Funktionen: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/mathematik/klasse-10/quadratische-funktionen`
+- Sport Q1 Badminton: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/sport/q1/badminton`
+- Sport Q1 Calisthenics: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/sport/q1/calisthenics`
+- Sport Q1 Roundnet: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/sport/q1/roundnet`
 
 In PowerPoint kann aus jedem dieser Links ein QR-Code erstellt werden.
 
