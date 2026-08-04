@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Fitfluencer-Werkstatt · Digitale Hilfekarten</title>
+  <style>
+    :root {
+      --navy: #15385f;
+      --blue: #25669a;
+      --green: #1f7557;
+      --gold: #e2af20;
+      --ink: #1d2939;
+      --muted: #526477;
+      --line: #d7dee5;
+      --paper: #ffffff;
+      --bg: #f4f7fa;
+      --soft: #eef5f8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    header {
+      color: #fff;
+      background: linear-gradient(135deg, var(--navy), #225f86);
+      padding: 1.4rem 1rem 1.6rem;
+    }
+    header > div, main, footer { width: min(860px, calc(100% - 2rem)); margin: auto; }
+    .eyebrow { margin: 0 0 .35rem; color: #ffe08a; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; }
+    h1 { margin: 0; font-size: clamp(1.85rem, 7vw, 3.2rem); line-height: 1.04; }
+    header p:last-child { max-width: 680px; margin: .7rem 0 0; color: #eef7ff; }
+    main { padding: 1rem 0 2rem; }
+    .start, .finish {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--gold);
+      border-radius: 14px;
+      padding: 1rem;
+      margin: 0 0 1rem;
+    }
+    .start h2, .finish h2 { margin: 0 0 .4rem; color: var(--navy); font-size: 1.2rem; }
+    .start ol, .finish ul { margin: .5rem 0 0; padding-left: 1.3rem; }
+    nav { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0; }
+    nav a {
+      color: var(--navy);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .45rem .72rem;
+      text-decoration: none;
+      font-weight: 750;
+      font-size: .9rem;
+    }
+    nav a:hover { border-color: var(--blue); }
+    details {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      margin: .8rem 0;
+      overflow: hidden;
+    }
+    details[open] { border-color: var(--green); box-shadow: 0 7px 22px rgba(21, 56, 95, .08); }
+    summary {
+      cursor: pointer;
+      padding: 1rem;
+      color: var(--navy);
+      font-weight: 850;
+      font-size: 1.05rem;
+    }
+    summary::marker { color: var(--gold); }
+    summary:focus-visible, a:focus-visible { outline: 4px solid rgba(226, 175, 32, .55); outline-offset: 3px; }
+    .content { border-top: 1px solid var(--line); padding: .2rem 1rem 1rem; }
+    .level { margin-top: .9rem; padding: .75rem .85rem; border-radius: 10px; background: var(--soft); }
+    .level strong { display: block; color: var(--green); margin-bottom: .2rem; }
+    .level p, .level ul { margin: .25rem 0 0; }
+    .level ul { padding-left: 1.2rem; }
+    .test { background: #fff9e8; }
+    .test strong { color: #815a00; }
+    .sentence { border-left: 4px solid var(--blue); padding-left: .7rem; font-weight: 650; }
+    .tag { display: inline-block; margin: .2rem .25rem .1rem 0; padding: .18rem .48rem; border-radius: 999px; background: #e8f1f7; color: var(--navy); font-size: .82rem; font-weight: 750; }
+    footer { color: var(--muted); padding: 0 0 1.5rem; text-align: center; font-size: .9rem; }
+    @media print {
+      body { background: #fff; }
+      header { background: #fff; color: #000; border-bottom: 2px solid #000; }
+      header p:last-child, .eyebrow { color: #000; }
+      nav { display: none; }
+      details { break-inside: avoid; }
+      details > .content { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">Sport Q2 · Fitfluencer-Werkstatt</p>
+      <h1>Wie verbessern wir unser Workout?</h1>
+      <p>Diese Karten geben euch Denkimpulse für den nächsten Praxistest. Sie ersetzen nicht eure eigene Beobachtung.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="start" aria-labelledby="nutzung">
+      <h2 id="nutzung">So nutzt ihr die Hilfen</h2>
+      <ol>
+        <li>Testet euren Abschnitt zuerst kontrolliert.</li>
+        <li>Benennt euer Hindernis: Was funktioniert noch nicht?</li>
+        <li>Öffnet zunächst <strong>nur eine</strong> passende Karte.</li>
+        <li>Verändert genau einen wichtigen Punkt und testet erneut.</li>
+      </ol>
+    </section>
+
+    <nav aria-label="Direkt zu einer Hilfekarte">
+      <a href="#ziel">Ziel</a>
+      <a href="#belastung">Belastung</a>
+      <a href="#technik">Technik</a>
+      <a href="#pause">Pause</a>
+      <a href="#coaching">Coaching</a>
+      <a href="#koerperbild">Körperbild</a>
+      <a href="#retest">Re-Test</a>
+      <a href="#vertiefung">Vertiefung</a>
+    </nav>
+
+    <details id="ziel">
+      <summary>Ziel &amp; Funktion – Was soll der Clip bewirken?</summary>
+      <div class="content">
+        <div class="level"><strong>Impuls 1 · Klärt das Ziel</strong><p>Was soll die Zielgruppe nach 45–60 Sekunden körperlich tun oder wahrnehmen können? Formuliert ein konkretes Ziel statt eines Versprechens wie „fit werden“.</p></div>
+        <div class="level"><strong>Impuls 2 · Prüft die Auswahl</strong><p>Welche Bewegung unterstützt genau dieses Ziel? Welche Übung wirkt nur spektakulär, lenkt aber vom Ziel ab?</p></div>
+        <div class="level"><strong>Mögliche Veränderungshebel</strong><p><span class="tag">Übungsauswahl</span><span class="tag">Reihenfolge</span><span class="tag">Zielansage</span><span class="tag">Zielgruppe</span></p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Kann eine andere Gruppe nach eurem ersten Satz Zielgruppe und Trainingsfunktion benennen?</p></div>
+        <p class="sentence">Satzstarter: „Unser Abschnitt unterstützt …, weil …“</p>
+      </div>
+    </details>
+
+    <details id="belastung">
+      <summary>Belastung &amp; Varianten – Wie wird echte Wahl möglich?</summary>
+      <div class="content">
+        <div class="level"><strong>Impuls 1 · Nutzt eure Wahrnehmung</strong><p>Liegt die Belastung beim Test ungefähr im vereinbarten Bereich von RPE 5–7/10? Bleibt die Bewegung kontrolliert?</p></div>
+        <div class="level"><strong>Impuls 2 · Verändert eine Stellschraube</strong><ul><li>Tempo oder Bewegungsumfang</li><li>Sprung/Impact oder bodennahe Alternative</li><li>Arbeitszeit oder Pause</li><li>stabile Unterstützung oder Ausgangsposition</li></ul></div>
+        <div class="level"><strong>Impuls 3 · Gleicher Zweck, anderer Weg</strong><p>Beide Varianten sollen dieselbe Funktion bearbeiten. Nennt sie neutral als „Option A/B“ oder beschreibt ihre Wirkung – nicht als Variante für „Schwache“ und „Starke“.</p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Können zwei Personen unterschiedliche Optionen wählen und trotzdem am selben Ziel arbeiten?</p></div>
+        <p class="sentence">Satzstarter: „Wähle Option …, wenn du heute … brauchst.“</p>
+      </div>
+    </details>
+
+    <details id="technik">
+      <summary>Bewegungsqualität – Welcher Hinweis hilft jetzt wirklich?</summary>
+      <div class="content">
+        <div class="level"><strong>Impuls 1 · Beobachtet nur ein Merkmal</strong><p>Was ist für eine kontrollierte und funktionale Ausführung am wichtigsten: stabile Ausgangsposition, kontrollierter Radius, ruhiges Tempo, Atmung oder Landung?</p></div>
+        <div class="level"><strong>Impuls 2 · Kürzt</strong><p>Wählt höchstens einen Technik- und einen Belastungshinweis. Der Satz muss während der Bewegung hörbar und sofort umsetzbar sein.</p></div>
+        <div class="level"><strong>Mögliche Veränderungshebel</strong><p><span class="tag">Startposition</span><span class="tag">Tempo</span><span class="tag">Radius</span><span class="tag">Atmung</span><span class="tag">Blickrichtung</span></p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Verändert der Hinweis im nächsten Durchgang sichtbar die Ausführung? Falls nicht: konkreter formulieren oder einen anderen Cue wählen.</p></div>
+        <p class="sentence">Satzstarter: „Achte jetzt nur auf …“</p>
+      </div>
+    </details>
+
+    <details id="pause">
+      <summary>Pause, Übergang &amp; Sicherheit – Bleibt der Clip steuerbar?</summary>
+      <div class="content">
+        <div class="level"><strong>Impuls 1 · Spielt Echtzeit</strong><p>Reichen Wechselzeit und Erklärung wirklich aus oder funktionieren sie nur durch einen Videoschnitt?</p></div>
+        <div class="level"><strong>Impuls 2 · Macht Selbstregulation sichtbar</strong><p>Wann darf verlangsamt, pausiert oder gestoppt werden? Ist das Stoppsignal kurz und eindeutig?</p></div>
+        <div class="level"><strong>Impuls 3 · Prüft Warnsignale</strong><p>Bei Schmerz, Schwindel, Kontrollverlust oder ungewöhnlichen Beschwerden wird sofort abgebrochen und die Lehrkraft informiert.</p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Lasst eine Person nur nach eurer Ansage mitmachen. Weiß sie vor jedem Wechsel, was kommt und welche Wahl sie hat?</p></div>
+        <p class="sentence">Satzstarter: „Du kannst das Tempo anpassen oder kurz pausieren; stoppe sofort, wenn …“</p>
+      </div>
+    </details>
+
+    <details id="coaching">
+      <summary>Coaching &amp; Wahlfreiheit – Motiviert die Sprache ohne Druck?</summary>
+      <div class="content">
+        <div class="level"><strong>Impuls 1 · Sucht Druckwörter</strong><p>Wertet euer Satz Pausen, Varianten oder Personen ab? Wörter wie „Ausrede“, „schwach“, „keine Gnade“ oder „nur wer durchzieht“ erschweren verantwortliche Entscheidungen.</p></div>
+        <div class="level"><strong>Impuls 2 · Beschreibt Handlung statt Wert</strong><p>Sagt, was die Person ausprobieren, wahrnehmen oder anpassen kann. Eine Herausforderung darf deutlich sein, ohne den Wert einer Person zu beurteilen.</p></div>
+        <div class="level"><strong>Beispiel zum Weiterdenken</strong><p>Aus „Keine Pause – zieh durch!“ könnte werden: „Bleib in einer kontrollierten Variante; passe Tempo oder Pause so an, dass du sauber weiterarbeiten kannst.“</p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Hört man im Clip mindestens eine echte Wahlmöglichkeit? Bleibt Stoppen legitim?</p></div>
+        <p class="sentence">Satzstarter: „Du entscheidest zwischen …; wichtig ist heute …“</p>
+      </div>
+    </details>
+
+    <details id="koerperbild">
+      <summary>Körperbild &amp; Versprechen – Ist die Botschaft gesundheitlich verantwortlich?</summary>
+      <div class="content">
+        <div class="level"><strong>Impuls 1 · Prüft das Versprechen</strong><p>Verspricht der Clip eine sichere Veränderung für alle, ein bestimmtes Aussehen oder Erfolg in sehr kurzer Zeit? Was kann dieser kurze Abschnitt tatsächlich leisten?</p></div>
+        <div class="level"><strong>Impuls 2 · Richtet den Blick auf Funktion</strong><p>Beschreibt Bewegung, Wahrnehmung, Technik oder Trainingsfunktion statt Körperwert, Aussehen oder Vergleich mit anderen.</p></div>
+        <div class="level"><strong>Impuls 3 · Macht Grenzen transparent</strong><p>Nennt Zielgruppe, Ziel und Anpassungsmöglichkeiten. Formuliert eine realistische Einladung statt einer Garantie.</p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Könnt ihr die Aussage mit dem belegen, was im Clip wirklich gezeigt und praktisch getestet wird?</p></div>
+        <p class="sentence">Satzstarter: „Dieser Abschnitt kann dich dabei unterstützen, …; passe ihn an, wenn …“</p>
+      </div>
+    </details>
+
+    <details id="retest">
+      <summary>Feedback &amp; Re-Test – Wurde es wirklich besser?</summary>
+      <div class="content">
+        <div class="level"><strong>Impuls 1 · Trennt Beobachtung und Urteil</strong><p>Beobachtung: Was war konkret hör- oder sichtbar? Wirkung: Was änderte sich bei Kontrolle, RPE oder Wahlmöglichkeit?</p></div>
+        <div class="level"><strong>Impuls 2 · Priorisiert</strong><p>Welche eine Änderung hat den größten Einfluss auf Ziel/Funktion, Selbstregulation oder Kommunikation? Ergänzt nicht wahllos immer mehr.</p></div>
+        <div class="level"><strong>Impuls 3 · Testet unter gleichen Bedingungen</strong><p>Behaltet Übung, Zeit und Ziel möglichst gleich. Verändert nur den priorisierten Punkt; vergleicht danach RPE und Beobachtung.</p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Kann die Gruppe den Satz mit einem Beleg beenden: „Version 2 ist verantwortungsvoller, weil …“?</p></div>
+        <p class="sentence">Feedbacksatz: „Beibehalten würde ich …; ändern würde ich …, weil beim Test …“</p>
+      </div>
+    </details>
+
+    <details id="vertiefung">
+      <summary>Nächste Herausforderung – Prüft die Nebenwirkung eurer Lösung</summary>
+      <div class="content">
+        <div class="level"><strong>Vertiefungsimpuls 1</strong><p>Verbessert eure Änderung ein Kriterium, verschlechtert aber ein anderes? Eine längere Erklärung kann zum Beispiel verständlicher sein, aber Bewegungszeit und Rhythmus stören.</p></div>
+        <div class="level"><strong>Vertiefungsimpuls 2</strong><p>Entwickelt zwei funktional gleichwertige Optionen, ohne eine davon als minderwertig zu markieren.</p></div>
+        <div class="level"><strong>Vertiefungsimpuls 3</strong><p>Begründet, warum ihr eine naheliegende Änderung bewusst nicht gewählt habt.</p></div>
+        <div class="level test"><strong>Mini-Test</strong><p>Welche Zielgruppe profitiert von eurer Lösung – und für wen müsste sie weiter angepasst werden?</p></div>
+      </div>
+    </details>
+
+    <section class="finish" aria-labelledby="abschluss">
+      <h2 id="abschluss">Vor dem nächsten Durchgang</h2>
+      <ul>
+        <li>Unsere wichtigste Änderung ist klar.</li>
+        <li>Wir wissen, woran wir ihre Wirkung beobachten.</li>
+        <li>Variante, Pause und Stoppen bleiben möglich.</li>
+        <li>Wir testen erneut, statt nur darüber zu sprechen.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>Keine Anmeldung · keine Eingabe persönlicher Daten · keine Analyse- oder Werbeskripte</footer>
+</body>
+</html>
+
