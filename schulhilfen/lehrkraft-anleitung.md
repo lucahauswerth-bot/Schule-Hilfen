@@ -1,38 +1,41 @@
 # Pflege-Anleitung für die Schulhilfen
 
-Diese Seiten sind öffentlich erreichbar. Bitte keine Namen, Klassenlisten, Noten, Diagnosen oder andere personenbezogene Informationen eintragen.
+Diese Seiten sind öffentlich erreichbar. Keine Namen, Klassenlisten, Noten, Diagnosen, Gesundheitsdaten oder andere personenbezogene Informationen eintragen.
 
-## Struktur
+## Verbindliche Struktur
 
-- `index.html`: Einstieg für Schülerinnen und Schüler.
-- `assets/style.css`: Gestaltung.
-- `assets/hilfen.js`: Fächer, Stufen, Kurse und Hilfetexte.
+```text
+schulhilfen/FACH/JAHRGANG/THEMA/hilfekarten/NAME/index.html
+```
 
-## Einen neuen Kurs ergänzen
+Beispiele:
 
-1. In `assets/hilfen.js` das passende Fach suchen.
-2. Die passende Stufe suchen, zum Beispiel `klasse-09` oder `q1`.
-3. Im Feld `courses` einen neuen Eintrag ergänzen.
-4. Für jede Hilfe einen Titel, einen kurzen Erklärungstext und drei bis vier Schritte formulieren.
+- `schulhilfen/mathematik/klasse-09/koerper/hilfekarten/...`
+- `schulhilfen/sport/q2/fitfluencer/hilfekarten/...`
 
-## QR-Links
+Größere HTML-Werkzeuge liegen ebenfalls im Themenordner, aber außerhalb von `hilfekarten`.
 
-Die wichtigsten Links sind:
+## Neue Hilfekarte ergänzen
 
-- Übersicht: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/`
-- Mathematik Klasse 9 Körper: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/mathematik/klasse-09/koerper`
-- Mathematik Klasse 10 Quadratische Funktionen: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/mathematik/klasse-10/quadratische-funktionen`
-- Sport Q1 Badminton: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/sport/q1/badminton`
-- Sport Q1 Calisthenics: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/sport/q1/calisthenics`
-- Sport Q1 Roundnet: `https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/#/sport/q1/roundnet`
+1. Fach, Jahrgang und Thema auswählen.
+2. Unter `hilfekarten` einen kurzen, kleingeschriebenen Ordnernamen mit Bindestrichen anlegen.
+3. Die Seite dort als `index.html` speichern.
+4. Bei mehreren aufklappbaren Hilfen eindeutige IDs verwenden, zum Beispiel `hilfe-1`.
+5. Den neuen Link in `schulhilfen/links.json` und auf `schulhilfen/index.html` ergänzen.
+6. Zieladresse live prüfen. Erst danach einen QR-Code erzeugen.
 
-In PowerPoint kann aus jedem dieser Links ein QR-Code erstellt werden.
+## Linkregeln
 
-Fertige QR-SVGs liegen zusätzlich unter:
+- Nur kleingeschriebene Pfade ohne Leerzeichen oder Umlaute verwenden.
+- Fach: `mathematik` oder `sport`.
+- Jahrgang: `klasse-05` bis `klasse-10`, `ef`, `q1`, `q2` oder transparent `jahrgang-offen`.
+- Jede Seite erhält ihren eigenen Ordner mit `index.html`.
+- Bestehende öffentliche Pfade nicht löschen. Bei einer späteren Verschiebung eine Weiterleitung oder einen Altzugang behalten.
 
-- `schulhilfen/qr/uebersicht.svg`
-- `schulhilfen/qr/mathe_klasse_09_koerper.svg`
-- `schulhilfen/qr/mathe_klasse_10_quadratische_funktionen.svg`
-- `schulhilfen/qr/sport_q1_badminton.svg`
-- `schulhilfen/qr/sport_q1_calisthenics.svg`
-- `schulhilfen/qr/sport_q1_roundnet.svg`
+## Qualitätsprüfung
+
+- Seite mobil und mit Tastatur testen.
+- Keine externen Tracker, Schriftarten oder Ergebnisübertragung.
+- Keine personenbezogenen Daten.
+- Endgültige HTTPS-Adresse öffnen.
+- QR-Code automatisch decodieren oder mit einem zweiten Gerät scannen.

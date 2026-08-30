@@ -1,0 +1,492 @@
+{
+  "updated": "2026-08-30",
+  "baseUrl": "https://lucahauswerth-bot.github.io/Schule-Hilfen/",
+  "items": [
+    {
+      "subject": "Mathematik",
+      "level": "Jahrgang offen",
+      "topic": "Lineare Gleichungssysteme",
+      "type": "HTML-Werkzeug",
+      "title": "LGS-Werkstatt",
+      "path": "schulhilfen/mathematik/jahrgang-offen/lineare-gleichungssysteme/lgs-werkstatt/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/jahrgang-offen/lineare-gleichungssysteme/lgs-werkstatt/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Jahrgang offen",
+      "topic": "Quadratische Funktionen",
+      "type": "HTML-Werkzeug",
+      "title": "Mission HGE-Eingang",
+      "path": "schulhilfen/mathematik/jahrgang-offen/quadratische-funktionen/mission-hge-eingang/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/jahrgang-offen/quadratische-funktionen/mission-hge-eingang/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 1 Vergleiche die Veränderungen",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/index.html#hilfe-1",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/#hilfe-1"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 1 Wertetabelle",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/index.html#hilfe-1",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/#hilfe-1"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 2 Gerade oder nicht?",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/index.html#hilfe-2",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/#hilfe-2"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 2 Punkte eintragen",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/index.html#hilfe-2",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/#hilfe-2"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 3 Ballflug",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/index.html#hilfe-3",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/#hilfe-3"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 3 Symmetrie",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/index.html#hilfe-3",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/#hilfe-3"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 4 Begründen",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/index.html#hilfe-4",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/#hilfe-4"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Hilfe 4 Beschreiben",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/index.html#hilfe-4",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/#hilfe-4"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Normalparabel verstehen",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/index.html#normalparabel-verstehen",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/#normalparabel-verstehen"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Nullstellen prüfen",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/index.html#nullstellen-pruefen",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/#nullstellen-pruefen"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Hilfekarte",
+      "title": "Scheitelpunkt ablesen",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/index.html#scheitelpunkt-ablesen",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/#scheitelpunkt-ablesen"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Seite",
+      "title": "Die Parabel entdecken · Stunde 4",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-04-parabel-entdecken/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Seite",
+      "title": "Grundlagen zu quadratischen Funktionen",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/grundlagen/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 10",
+      "topic": "Quadratische Funktionen",
+      "type": "Seite",
+      "title": "Reicht eine Gerade? · Stunde 3",
+      "path": "schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-10/quadratische-funktionen/hilfekarten/stunde-03-reicht-eine-gerade/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 1 Angaben markieren",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/index.html#hilfe-1",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/#hilfe-1"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 1 Grundfläche bestimmen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/index.html#hilfe-1",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/#hilfe-1"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 1 Grundfläche und Höhe vergleichen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/index.html#hilfe-1",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/#hilfe-1"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 2 Grundfläche berechnen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/index.html#hilfe-2",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/#hilfe-2"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 2 Körper zuordnen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/index.html#hilfe-2",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/#hilfe-2"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 2 Umschütten beobachten",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/index.html#hilfe-2",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/#hilfe-2"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 3 Faktor erkennen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/index.html#hilfe-3",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/#hilfe-3"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 3 Formel wählen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/index.html#hilfe-3",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/#hilfe-3"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 3 Körperhöhe finden",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/index.html#hilfe-3",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/#hilfe-3"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 4 Antwortsatz formulieren",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/index.html#hilfe-4",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/#hilfe-4"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 4 Formel nutzen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/index.html#hilfe-4",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/#hilfe-4"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 4 Vom Prisma ausgehen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/index.html#hilfe-4",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/#hilfe-4"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 5 Einheit prüfen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/index.html#hilfe-5",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/#hilfe-5"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 5 Formel prüfen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/index.html#hilfe-5",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/#hilfe-5"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Hilfe 5 Realistisch prüfen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/index.html#hilfe-5",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/#hilfe-5"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Körper erkennen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/index.html#koerper-erkennen",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/#koerper-erkennen"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Oberfläche berechnen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/index.html#oberflaeche-berechnen",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/#oberflaeche-berechnen"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Hilfekarte",
+      "title": "Volumen berechnen",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/index.html#volumen-berechnen",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/#volumen-berechnen"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Seite",
+      "title": "Grundlagen zu Körpern",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/grundlagen/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Seite",
+      "title": "Pyramidenvolumen herleiten · Stunde 6",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-06-pyramidenvolumen-herleiten/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Seite",
+      "title": "Textaufgaben zu Prismen und Zylindern · Stunde 5",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-05-textaufgaben-prisma-zylinder/"
+    },
+    {
+      "subject": "Mathematik",
+      "level": "Klasse 9",
+      "topic": "Körper",
+      "type": "Seite",
+      "title": "Volumen von Prismen und Zylindern · Stunde 3",
+      "path": "schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/mathematik/klasse-09/koerper/hilfekarten/stunde-03-volumen-prisma-zylinder/"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Badminton",
+      "type": "Hilfekarte",
+      "title": "Clear",
+      "path": "schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/index.html#clear",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/#clear"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Badminton",
+      "type": "Hilfekarte",
+      "title": "Drop",
+      "path": "schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/index.html#drop",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/#drop"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Badminton",
+      "type": "Hilfekarte",
+      "title": "Taktische Grundidee",
+      "path": "schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/index.html#taktische-grundidee",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/#taktische-grundidee"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Badminton",
+      "type": "Seite",
+      "title": "Badminton-Hilfekarten",
+      "path": "schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/badminton/hilfekarten/grundlagen/"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Calisthenics",
+      "type": "Hilfekarte",
+      "title": "Feedback geben",
+      "path": "schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/index.html#feedback-geben",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/#feedback-geben"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Calisthenics",
+      "type": "Hilfekarte",
+      "title": "Körperspannung",
+      "path": "schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/index.html#koerperspannung",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/#koerperspannung"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Calisthenics",
+      "type": "Hilfekarte",
+      "title": "Progression wählen",
+      "path": "schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/index.html#progression-waehlen",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/#progression-waehlen"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Calisthenics",
+      "type": "Seite",
+      "title": "Calisthenics-Hilfekarten",
+      "path": "schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/calisthenics/hilfekarten/grundlagen/"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Roundnet",
+      "type": "Hilfekarte",
+      "title": "Angriff variieren",
+      "path": "schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/index.html#angriff-variieren",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/#angriff-variieren"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Roundnet",
+      "type": "Hilfekarte",
+      "title": "Drei-Kontakt-Idee",
+      "path": "schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/index.html#drei-kontakt-idee",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/#drei-kontakt-idee"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Roundnet",
+      "type": "Hilfekarte",
+      "title": "Positionierung",
+      "path": "schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/index.html#positionierung",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/#positionierung"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q1",
+      "topic": "Roundnet",
+      "type": "Seite",
+      "title": "Roundnet-Hilfekarten",
+      "path": "schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q1/roundnet/hilfekarten/grundlagen/"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q2",
+      "topic": "Fitfluencer",
+      "type": "Hilfekarte",
+      "title": "1 · Training passend machen",
+      "path": "schulhilfen/sport/q2/fitfluencer/hilfekarten/index.html#hilfe-1",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q2/fitfluencer/hilfekarten/#hilfe-1"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q2",
+      "topic": "Fitfluencer",
+      "type": "Hilfekarte",
+      "title": "2 · Belastung steuerbar machen",
+      "path": "schulhilfen/sport/q2/fitfluencer/hilfekarten/index.html#hilfe-2",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q2/fitfluencer/hilfekarten/#hilfe-2"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q2",
+      "topic": "Fitfluencer",
+      "type": "Hilfekarte",
+      "title": "3 · Coaching verantwortungsvoll machen",
+      "path": "schulhilfen/sport/q2/fitfluencer/hilfekarten/index.html#hilfe-3",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q2/fitfluencer/hilfekarten/#hilfe-3"
+    },
+    {
+      "subject": "Sport",
+      "level": "Q2",
+      "topic": "Fitfluencer",
+      "type": "Seite",
+      "title": "Fitfluencer-Werkstatt · Drei Hilfekarten",
+      "path": "schulhilfen/sport/q2/fitfluencer/hilfekarten/index.html",
+      "url": "https://lucahauswerth-bot.github.io/Schule-Hilfen/schulhilfen/sport/q2/fitfluencer/hilfekarten/"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hilfekarten Stunde 4</title>
+  <style>
+    :root { --ink:#172033; --muted:#667085; --line:#cfd7e3; --paper:#ffffff; --bg:#f3f6fa; --blue:#1f5f99; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, 'Segoe UI', sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
+    main { max-width:920px; margin:0 auto; padding:24px; }
+    header { background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:20px; margin-bottom:16px; }
+    h1 { margin:0; font-size:30px; letter-spacing:0; }
+    .sub { margin:6px 0 0; color:var(--muted); font-weight:700; }
+    .intro { margin:12px 0 0; color:#344054; }
+    .grid { display:grid; gap:12px; }
+    .help-card { background:var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+    .help-card summary { min-height:56px; display:flex; align-items:center; gap:12px; padding:14px 16px; cursor:pointer; font-size:20px; font-weight:800; color:#15385f; }
+    .help-card summary span { flex:0 0 auto; border-radius:999px; background:#e8f1fb; color:var(--blue); padding:4px 10px; font-size:13px; }
+    .help-card summary::marker { color:var(--blue); }
+    .help-card[open] summary { border-bottom:1px solid var(--line); background:#f8fbff; }
+    .help-body { padding:16px; font-size:18px; }
+    footer { margin-top:16px; color:var(--muted); font-size:14px; }
+    @media print { body { background:white; } main { max-width:none; } .help-card { break-inside:avoid; } .help-card:not([open]) .help-body { display:block; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Hilfekarten Stunde 4</h1>
+      <p class="sub">Die Parabel entdecken</p>
+      <p class="intro">Klicke auf den Oberbegriff, wenn du eine Hilfe freischalten möchtest.</p>
+    </header>
+    <section class="grid">
+      <details class="help-card" id="hilfe-1">
+        <summary><span>Hilfe 1</span>Wertetabelle</summary>
+        <div class="help-body">Berechne x², indem du die Zahl mit sich selbst multiplizierst: (-3)² = 9.</div>
+      </details>
+      <details class="help-card" id="hilfe-2">
+        <summary><span>Hilfe 2</span>Punkte eintragen</summary>
+        <div class="help-body">Ein Punkt besteht aus x-Wert und y-Wert. Beispiel: x = -2 und y = 4 ergibt den Punkt (-2 | 4).</div>
+      </details>
+      <details class="help-card" id="hilfe-3">
+        <summary><span>Hilfe 3</span>Symmetrie</summary>
+        <div class="help-body">Vergleiche die Punkte links und rechts von x = 0. Welche y-Werte sind gleich?</div>
+      </details>
+      <details class="help-card" id="hilfe-4">
+        <summary><span>Hilfe 4</span>Beschreiben</summary>
+        <div class="help-body">Die Parabel ist symmetrisch, weil ... Der Scheitelpunkt liegt bei ...</div>
+      </details>
+    </section>
+    <footer>Luca Hauswerth | HGE | Hilfekarten</footer>
+  </main>
+<script>(()=>{const open=()=>{const id=decodeURIComponent(location.hash.slice(1));const card=id&&document.getElementById(id);if(card){card.open=true;card.scrollIntoView({block:"start"});}};addEventListener("hashchange",open);open();})();</script></body>
+</html>
