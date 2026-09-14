@@ -169,6 +169,8 @@
       .steps li { text-align: left; }
     }
 
+    @media print { details .card { display: block !important; } details { break-inside: avoid; } }
+
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior: auto !important; }
     }
@@ -192,48 +194,28 @@
       </ol>
     </section>
 
-    <p class="rule"><strong>Erst eigene Idee.</strong> Nur bei Bedarf eine Karte öffnen.</p>
-
-    <details name="hilfekarte">
-      <summary>1 · Training passend machen</summary>
-      <div class="card">
-        <p class="impulse">Passt die Übung wirklich zum Ziel?</p>
-        <ul>
-          <li>Ziel und Zielgruppe kurz nennen.</li>
-          <li>Übung oder Hinweis passend verändern.</li>
-        </ul>
-        <p class="retest"><strong>Re-Test:</strong> Ist das Ziel sofort erkennbar?</p>
-      </div>
+    <p class="rule"><strong>Salutogenese im Workout:</strong> verstehen · bewältigen · Sinn erkennen.</p>
+    <p class="rule">Erst eigene Idee. Nur bei Bedarf im 1-Minuten-Feedbackfenster eine passende Karte öffnen. Eine Änderung wählen, praktisch testen und ihre Wirkung belegen.</p>
+    <details name="hilfekarte"><summary>1 · Verstehbarkeit</summary>
+      <div class="card"><p class="impulse">Verstehe ich, was ich tue und wozu?</p>
+        <ul><li>Trainingsziel und Zielgruppe benennen: Passen die Übungen zur Ganzkörperaktivierung?</li><li>Einen klaren Bewegungshinweis geben und unrealistische Wirkversprechen berichtigen.</li></ul>
+        <p class="retest"><strong>Re-Test:</strong> Kann die testende Person Ziel und Bewegungshinweis erklären und den Hinweis kontrolliert umsetzen?</p></div>
     </details>
-
-    <details name="hilfekarte">
-      <summary>2 · Belastung steuerbar machen</summary>
-      <div class="card">
-        <p class="impulse">Kann die trainierende Person selbst entscheiden?</p>
-        <ul>
-          <li>Eine gleichwertige Variante anbieten.</li>
-          <li>Tempo, Pause oder Bewegungsumfang freigeben.</li>
-        </ul>
-        <p class="retest"><strong>Re-Test:</strong> Bleibt die Bewegung bei RPE 5–7 kontrolliert?</p>
-      </div>
+    <details name="hilfekarte"><summary>2 · Handhabbarkeit</summary>
+      <div class="card"><p class="impulse">Welche Ressourcen helfen mir, die Anforderung zu bewältigen?</p>
+        <ul><li>Eine funktional gleichwertige Variante sowie frei wählbares Tempo, Bewegungsumfang und Pausen anbieten.</li><li>Coach-Unterstützung nutzen; Anstrengung mit der bekannten RPE-Skala einschätzen und Stoppsignale beachten.</li></ul>
+        <p class="retest"><strong>Re-Test:</strong> Kann die Person Variante und Pause selbst wählen und kontrolliert trainieren? RPE vorher/nachher vergleichen – kein fester Zielwert.</p></div>
     </details>
-
-    <details name="hilfekarte">
-      <summary>3 · Coaching verantwortungsvoll machen</summary>
-      <div class="card">
-        <p class="impulse">Stärkt die Ansprache Wahlfreiheit statt Druck?</p>
-        <ul>
-          <li>Wahl und Pause ausdrücklich erlauben.</li>
-          <li>Beschämung und Erfolgsgarantien streichen.</li>
-        </ul>
-        <p class="retest"><strong>Re-Test:</strong> Kann die Person verantwortlich selbst steuern?</p>
-      </div>
+    <details name="hilfekarte"><summary>3 · Sinnhaftigkeit</summary>
+      <div class="card"><p class="impulse">Warum lohnt sich dieses Training für mich?</p>
+        <ul><li>Im gemeinsamen Zielprofil einen persönlich bedeutsamen Grund für die Aktivierung benennen lassen.</li><li>Respektvoll ermutigen: eigene Ziele und Entscheidungen anerkennen; Beschämung und Körperideale als Druckmittel streichen.</li></ul>
+        <p class="retest"><strong>Re-Test:</strong> Kann die Person einen eigenen Grund fürs Mitmachen nennen und ihre Wahl begründen? Rückmeldung zur Ansprache mit vorher vergleichen.</p></div>
     </details>
-
+    <p class="rule">Im iPad-Bogen: <strong>Beleg – Änderung – Re-Test.</strong> Was ist nach der Änderung beobachtbar anders?</p>
     <p class="stop">Bei Schmerz, Schwindel, Übelkeit oder Kontrollverlust: stoppen und die Lehrkraft informieren.</p>
   </main>
 
-  <footer>Luca Hauswerth · keine Anmeldung · keine Datenübertragung</footer>
+  <footer>Luca Hauswerth · keine Anmeldung · keine Eingaben oder Analyse-Tracker<br>Didaktische Übertragung nach Antonovsky / Faltermaier (2023)</footer>
 
   <script>
     const cards = [...document.querySelectorAll('details[name="hilfekarte"]')];
