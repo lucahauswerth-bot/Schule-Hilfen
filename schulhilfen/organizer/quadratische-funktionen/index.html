@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advanced Organizer Quadratische Funktionen 10E</title>
+  <style>
+    :root { --navy:#15385f; --gold:#e4b21b; --green:#1f7a5c; --ink:#172332; --muted:#5d6b79; --line:#d5dde7; --paper:#f5f7fa; --white:#fff; --future:#eef2f6; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; color:var(--ink); background:var(--paper); font-family:"Aptos","Segoe UI",Arial,sans-serif; }
+    main { width:min(1600px,100vw); min-height:100vh; margin:0 auto; padding:clamp(14px,2vw,30px); display:grid; grid-template-rows:auto auto auto 1fr auto; gap:clamp(12px,1.5vw,24px); }
+    header { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; padding:clamp(18px,2vw,30px); color:white; background:var(--navy); border-bottom:7px solid var(--gold); border-radius:18px; }
+    .eyebrow { margin:0 0 6px; font-size:clamp(12px,1vw,16px); font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(30px,4.5vw,68px); line-height:1; }
+    .goal { margin:10px 0 0; max-width:920px; color:#e8eef6; font-size:clamp(15px,1.35vw,22px); }
+    .parabola { width:clamp(150px,17vw,260px); height:clamp(90px,10vw,150px); }
+    .motivation { display:grid; grid-template-columns:minmax(250px,360px) 1fr; gap:clamp(14px,2vw,28px); align-items:center; padding:12px 16px; background:var(--white); border:2px solid var(--line); border-radius:14px; }
+    .motivation img { width:100%; height:118px; object-fit:cover; border-radius:10px; }
+    .motivation-copy h2 { margin:0 0 8px; }
+    .motivation-examples { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+    .motivation-example { min-width:0; padding:8px 10px; background:var(--future); border-left:5px solid var(--navy); border-radius:8px; }
+    .motivation-example strong,.motivation-example small { display:block; }
+    .motivation-example strong { color:var(--navy); font-size:clamp(13px,1vw,16px); }
+    .motivation-example small { margin-top:3px; color:var(--muted); font-size:clamp(11px,.85vw,14px); }
+    .motivation-note { margin:8px 0 0; color:var(--muted); font-size:clamp(11px,.85vw,14px); }
+    .statusbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 24px; padding:12px 18px; background:var(--white); border:2px solid var(--line); border-radius:14px; }
+    .where { display:flex; align-items:center; gap:12px; font-size:clamp(16px,1.45vw,23px); font-weight:800; }
+    .marker { display:inline-grid; place-items:center; width:44px; height:44px; color:var(--navy); background:var(--gold); border-radius:50% 50% 50% 8px; transform:rotate(-8deg); box-shadow:0 4px 0 #aa7f00; font-size:24px; }
+    .controls { display:flex; align-items:center; gap:10px; color:var(--muted); font-weight:700; }
+    select { min-height:42px; padding:7px 12px; color:var(--ink); background:white; border:2px solid var(--navy); border-radius:8px; font:inherit; cursor:pointer; }
+    .journey { position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:clamp(8px,1vw,16px); align-items:stretch; }
+    .journey::before { content:""; position:absolute; top:64px; left:4%; right:4%; height:8px; background:var(--line); border-radius:999px; z-index:0; }
+    .phase { position:relative; z-index:1; min-width:0; padding:14px; background:var(--white); border:2px solid var(--line); border-radius:16px; box-shadow:0 6px 18px rgba(21,56,95,.07); }
+    .phase.current-phase { border-color:var(--gold); box-shadow:0 0 0 5px rgba(228,178,27,.18); }
+    .phase-head { min-height:96px; display:grid; grid-template-columns:52px 1fr; gap:10px; align-items:start; }
+    .phase-no { display:grid; place-items:center; width:48px; height:48px; color:white; background:var(--navy); border:5px solid white; border-radius:50%; outline:4px solid var(--navy); font-size:21px; font-weight:900; }
+    h2 { margin:0 0 5px; color:var(--navy); font-size:clamp(17px,1.45vw,24px); line-height:1.06; }
+    .phase-purpose { margin:0; color:var(--muted); font-size:clamp(12px,.95vw,16px); line-height:1.25; }
+    .steps { display:grid; gap:9px; }
+    .step { position:relative; width:100%; min-height:74px; padding:10px 10px 10px 44px; text-align:left; color:var(--muted); background:var(--future); border:2px solid var(--line); border-radius:11px; font:inherit; cursor:pointer; transition:transform .15s ease,box-shadow .15s ease; }
+    .step:hover,.step:focus-visible { transform:translateY(-2px); box-shadow:0 5px 12px rgba(21,56,95,.13); outline:none; }
+    .step-no { position:absolute; top:10px; left:9px; display:grid; place-items:center; width:27px; height:27px; color:white; background:#8c99a7; border-radius:50%; font-size:12px; font-weight:900; }
+    .step strong { display:block; margin-bottom:4px; color:var(--ink); font-size:clamp(13px,1vw,16px); line-height:1.1; }
+    .step small { display:block; font-size:clamp(11px,.83vw,14px); line-height:1.18; }
+    .step.done { color:#dce8f2; background:var(--navy); border-color:var(--navy); }
+    .step.done strong { color:white; }
+    .step.done .step-no { color:var(--navy); background:white; }
+    .step.done .step-no::after { content:"✓"; }
+    .step.done .step-no span { display:none; }
+    .step.current { color:var(--ink); background:#fff7d6; border-color:#b98700; box-shadow:0 0 0 4px rgba(228,178,27,.22); }
+    .step.current::after { content:"HIER"; position:absolute; top:-9px; right:8px; padding:3px 8px; color:var(--navy); background:var(--gold); border-radius:999px; font-size:10px; font-weight:900; letter-spacing:.08em; }
+    .step.current .step-no { color:var(--navy); background:var(--gold); }
+    footer { display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; padding:10px 16px; color:var(--muted); background:white; border-radius:12px; font-size:clamp(12px,1vw,16px); }
+    .legend { display:flex; flex-wrap:wrap; gap:12px 20px; }
+    .legend span { display:inline-flex; align-items:center; gap:7px; }
+    .dot { width:14px; height:14px; border-radius:4px; border:2px solid var(--line); background:var(--future); }
+    .dot.done { border-color:var(--navy); background:var(--navy); }
+    .dot.now { border-color:#b98700; background:var(--gold); }
+    .destination { color:var(--green); font-weight:900; }
+    @media (max-width:1050px) { .journey { grid-template-columns:repeat(2,minmax(0,1fr)); } .journey::before { display:none; } .phase:last-child { grid-column:1/-1; } }
+    @media (max-width:650px) { header { grid-template-columns:1fr; } .parabola { display:none; } .motivation { grid-template-columns:1fr; } .motivation-examples { grid-template-columns:1fr; } .journey { grid-template-columns:1fr; } .phase:last-child { grid-column:auto; } footer { grid-template-columns:1fr; } }
+    @media print { @page { size:A3 landscape; margin:8mm; } body { background:white; } main { width:100%; min-height:auto; padding:0; } .controls { display:none; } .phase { box-shadow:none; } .step { min-height:62px; } }
+    @media (prefers-reduced-motion:reduce) { * { transition:none!important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="eyebrow">Mathematik 10E · unsere Lernreise</p><h1>Quadratische Funktionen</h1><p class="goal">Unser Ziel: Parabeln verstehen, zwischen Graph, Tabelle und Term wechseln und mit passenden Modellen begründet Probleme lösen.</p></div>
+      <svg class="parabola" viewBox="0 0 280 150" role="img" aria-label="Parabel mit Scheitelpunkt"><line x1="16" y1="124" x2="266" y2="124" stroke="#9bb0c6" stroke-width="3"/><line x1="140" y1="12" x2="140" y2="140" stroke="#9bb0c6" stroke-width="3"/><path d="M30 24 Q140 218 250 24" fill="none" stroke="#e4b21b" stroke-width="8" stroke-linecap="round"/><circle cx="140" cy="121" r="7" fill="#fff"/><text x="151" y="114" fill="#fff" font-size="18" font-weight="700">S</text></svg>
+    </header>
+    <section class="motivation" aria-labelledby="motivation-title">
+      <img src="Motivation.png" alt="Basketballwurf, Sprung im Skatepark und Wasserstrahl als Beispiele für annähernd parabelförmige Bahnen">
+      <div class="motivation-copy">
+        <h2 id="motivation-title">Wo begegnen uns Parabeln?</h2>
+        <div class="motivation-examples">
+          <div class="motivation-example"><strong>Basketballwurf</strong><small>Wie hoch steigt der Ball?</small></div>
+          <div class="motivation-example"><strong>Sprung im Skatepark</strong><small>Wo liegt der höchste Punkt?</small></div>
+          <div class="motivation-example"><strong>Wasserstrahl</strong><small>Wo trifft das Wasser wieder auf?</small></div>
+        </div>
+        <p class="motivation-note">In vereinfachten Modellen lassen sich diese Bahnen näherungsweise durch Parabeln beschreiben.</p>
+      </div>
+    </section>
+    <section class="statusbar" aria-live="polite"><div class="where"><span class="marker" aria-hidden="true">➜</span><span id="statusText">Hier sind wir: Stunden 1–2</span></div><label class="controls">Aktuellen Schritt wählen <select id="currentSelect" aria-label="Aktuellen Schritt der Reihe wählen"></select></label></section>
+    <section class="journey" aria-label="Lernweg der Reihe">
+      <article class="phase" data-first="0" data-last="2"><div class="phase-head"><span class="phase-no">1</span><div><h2>Parabeln entdecken</h2><p class="phase-purpose">Darstellungen verbinden und die Grundform kennenlernen.</p></div></div><div class="steps">
+        <button class="step" data-step="0"><span class="step-no"><span>1–2</span></span><strong>Darstellungen verbinden</strong><small>Term · Tabelle · Punkte · Graph · Normalparabel</small></button>
+        <button class="step" data-step="1"><span class="step-no"><span>3</span></span><strong>Parameterlabor</strong><small>Mit GeoGebra Veränderungen entdecken</small></button>
+        <button class="step" data-step="2"><span class="step-no"><span>4</span></span><strong>Breit, schmal, gespiegelt</strong><small>Vorzeichen und Betrag von a deuten</small></button>
+      </div></article>
+      <article class="phase" data-first="3" data-last="6"><div class="phase-head"><span class="phase-no">2</span><div><h2>Lage und Form lesen</h2><p class="phase-purpose">Am Graphen erkennen, wie der Term aufgebaut ist.</p></div></div><div class="steps">
+        <button class="step" data-step="3"><span class="step-no"><span>5</span></span><strong>Parabeln verschieben</strong><small>Links · rechts · oben · unten</small></button>
+        <button class="step" data-step="4"><span class="step-no"><span>6</span></span><strong>Der Scheitel verrät den Term</strong><small>Scheitelpunktform als Lesewerkzeug</small></button>
+        <button class="step" data-step="5"><span class="step-no"><span>7</span></span><strong>Spuren lesen I</strong><small>Vom Graphen zur Scheitelpunktform</small></button>
+        <button class="step" data-step="6"><span class="step-no"><span>8</span></span><strong>Spuren lesen II</strong><small>Mit einem Punkt den Parameter a bestimmen</small></button>
+      </div></article>
+      <article class="phase" data-first="7" data-last="10"><div class="phase-head"><span class="phase-no">3</span><div><h2>Modelle entwickeln</h2><p class="phase-purpose">Informationen aus Bildern und Situationen in Mathematik übersetzen.</p></div></div><div class="steps">
+        <button class="step" data-step="7"><span class="step-no"><span>9</span></span><strong>Wo berührt der Bogen den Boden?</strong><small>Nullstellen als Fußpunkte deuten</small></button>
+        <button class="step" data-step="8"><span class="step-no"><span>10</span></span><strong>Vom Bild zum Term</strong><small>Modellierung Schritt für Schritt</small></button>
+        <button class="step" data-step="9"><span class="step-no"><span>11</span></span><strong>UPP-Werkstatt</strong><small>Vom Graphen zur passenden Funktion</small></button>
+        <button class="step" data-step="10"><span class="step-no"><span>12</span></span><strong>Gleichungssysteme nutzen</strong><small>Unbekannte Parameter bestimmen</small></button>
+      </div></article>
+      <article class="phase" data-first="11" data-last="11"><div class="phase-head"><span class="phase-no">4</span><div><h2>Reihenhöhepunkt</h2><p class="phase-purpose">Bekannte Werkzeuge in einer neuen Situation selbstständig verbinden.</p></div></div><div class="steps">
+        <button class="step" data-step="11"><span class="step-no"><span>13</span></span><strong>Mission HGE-Eingang</strong><small>Ein reales Problem mathematisch modellieren und begründen</small></button>
+      </div></article>
+      <article class="phase" data-first="12" data-last="14"><div class="phase-head"><span class="phase-no">5</span><div><h2>Vernetzen und sichern</h2><p class="phase-purpose">Modelle kritisch prüfen und das eigene Werkzeugwissen ordnen.</p></div></div><div class="steps">
+        <button class="step" data-step="12"><span class="step-no"><span>14</span></span><strong>Modelle vergleichen</strong><small>Passung und Grenzen begründet prüfen</small></button>
+        <button class="step" data-step="13"><span class="step-no"><span>15</span></span><strong>Werkzeuge vernetzen</strong><small>Darstellungen und Verfahren gezielt wählen</small></button>
+        <button class="step" data-step="14"><span class="step-no"><span>16</span></span><strong>Werkzeugcheck im Team</strong><small>Erklären · anwenden · Rückmeldung nutzen</small></button>
+      </div></article>
+    </section>
+    <footer><div class="legend"><span><i class="dot done"></i> erledigt</span><span><i class="dot now"></i> heute</span><span><i class="dot"></i> kommt noch</span></div><div class="destination">ZIEL: passende Modelle entwickeln, prüfen und erklären</div></footer>
+  </main>
+  <script>
+    const steps=[...document.querySelectorAll('.step')],phases=[...document.querySelectorAll('.phase')],select=document.getElementById('currentSelect'),statusText=document.getElementById('statusText');
+    const labels=steps.map(step=>`${step.querySelector('.step-no span').textContent} · ${step.querySelector('strong').textContent}`);
+    labels.forEach((label,index)=>{const option=document.createElement('option');option.value=index;option.textContent=label;select.append(option);});
+    function setCurrent(index){const safe=Math.max(0,Math.min(steps.length-1,Number(index)||0));steps.forEach((step,i)=>{step.classList.toggle('done',i<safe);step.classList.toggle('current',i===safe);step.setAttribute('aria-current',i===safe?'step':'false');});phases.forEach(phase=>{const first=Number(phase.dataset.first),last=Number(phase.dataset.last);phase.classList.toggle('current-phase',safe>=first&&safe<=last);});select.value=safe;statusText.textContent=`Hier sind wir: ${labels[safe]}`;localStorage.setItem('advanced-organizer-quadratische-funktionen',String(safe));const url=new URL(location.href);url.searchParams.set('schritt',String(safe+1));history.replaceState(null,'',url);}
+    const query=Number(new URLSearchParams(location.search).get('schritt'))-1,saved=Number(localStorage.getItem('advanced-organizer-quadratische-funktionen'));setCurrent(Number.isInteger(query)&&query>=0?query:(Number.isInteger(saved)?saved:0));
+    select.addEventListener('change',event=>setCurrent(event.target.value));steps.forEach(step=>step.addEventListener('click',()=>setCurrent(step.dataset.step)));
+  </script>
+</body>
+</html>
