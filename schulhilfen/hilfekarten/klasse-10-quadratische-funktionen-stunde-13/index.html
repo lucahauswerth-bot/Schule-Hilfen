@@ -242,6 +242,11 @@
       font-size: 0.84rem;
     }
 
+    .cycle li.done { border-color: var(--green); color: var(--green); }
+    .cycle li.done::before { content: "✓ "; }
+    .cycle-status { position: sticky; top: 0; z-index: 5; margin: 0 0 12px;
+      padding: 10px 14px; border: 1px solid #c7d0da; border-radius: 10px;
+      background: #fff; color: var(--navy-dark); font-weight: 750; }
     .cycle li.active {
       border-left-color: var(--gold);
       color: var(--navy-dark);
@@ -398,6 +403,33 @@
       gap: 6px;
     }
 
+    .coordinate-input {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 48px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .coordinate-input input {
+      width: 4.25rem;
+      min-width: 0;
+      padding: 7px 5px 5px;
+      border: 0;
+      border-bottom: 2px solid #7f8f9f;
+      border-radius: 0;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .coordinate-input input:focus {
+      border-bottom-color: var(--navy);
+      box-shadow: 0 3px 0 rgba(21, 56, 95, 0.18);
+      outline: none;
+    }
+
     .coordinate-feedback {
       min-height: 1.25rem;
       color: var(--muted);
@@ -431,6 +463,103 @@
 
     .point-check-feedback.success { color: var(--green); }
     .point-check-feedback.error { color: var(--danger); }
+
+    .equation-solver {
+      display: grid;
+      gap: 14px;
+      padding: 4px 14px 16px;
+    }
+
+    .equation-solver fieldset {
+      margin: 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    .equation-solver legend {
+      padding: 0 6px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .equation-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin: 9px 0;
+      font-weight: 750;
+    }
+
+    .equation-row strong { min-width: 2rem; }
+
+    .equation-row input {
+      width: 4.25rem;
+      min-width: 0;
+      padding: 7px 5px;
+      text-align: center;
+    }
+
+    .solver-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .solver-controls button {
+      min-height: 42px;
+      padding: 8px 14px;
+      border: 1px solid var(--navy);
+      border-radius: 9px;
+      color: #fff;
+      background: var(--navy);
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .solver-controls button.secondary {
+      color: var(--navy);
+      background: #fff;
+    }
+
+    .solver-controls button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .solver-status {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .solver-status.error { color: var(--danger); }
+    .solver-status.success { color: var(--green); }
+
+    .solver-steps {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 1.4rem;
+    }
+
+    .solver-step {
+      padding: 11px 12px;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      background: #fff9e8;
+    }
+
+    .solver-step p { margin: 4px 0 0; }
+
+    .solver-system-line {
+      display: block;
+      margin-top: 4px;
+      font-family: Consolas, "Courier New", monospace;
+      font-weight: 700;
+    }
 
     .measure {
       padding: 14px;
@@ -600,7 +729,12 @@
       .step-nav button { grid-template-columns: 1fr; justify-items: center; text-align: center; }
       .cycle { grid-template-columns: repeat(5, minmax(0, 1fr)); }
       .cycle li { border-left: 0; border-top: 4px solid #c7d0da; }
-      .cycle li.active { border-top-color: var(--gold); }
+      .cycle li.done { border-color: var(--green); color: var(--green); }
+    .cycle li.done::before { content: "✓ "; }
+    .cycle-status { position: sticky; top: 0; z-index: 5; margin: 0 0 12px;
+      padding: 10px 14px; border: 1px solid #c7d0da; border-radius: 10px;
+      background: #fff; color: var(--navy-dark); font-weight: 750; }
+    .cycle li.active { border-top-color: var(--gold); }
     }
 
     @media (max-width: 600px) {
@@ -671,13 +805,14 @@
       </aside>
 
       <main id="main">
+        <p id="cycleStatus" class="cycle-status" role="status" aria-live="polite"></p>
         <section id="auftrag" class="step active" data-cycle-stage="real" aria-labelledby="auftrag-title">
           <p class="step-kicker">Schritt 1 · Reale Situation</p>
           <h2 id="auftrag-title" tabindex="-1">Höre der Anfrage genau zu</h2>
           <p class="lead">Die Videobotschaft zeigt zunächst den heutigen Eingang und anschließend einen unverbindlichen Entwurf des neuen Bogens. Achte darauf, was geplant ist, welche Maße genannt werden und welche mathematische Unterstützung benötigt wird.</p>
 
           <figure class="entrance-reference">
-            <img src="HGE_Eingang_Foto_2026-08-31.jpg" alt="Der heutige Eingangsbereich der Holzkamp-Gesamtschule vor dem geplanten Umbau" loading="eager">
+            <img src="Eingang.jpg" alt="Der heutige Eingangsbereich der Holzkamp-Gesamtschule vor dem geplanten Umbau" loading="eager">
             <figcaption><strong>Ausgangssituation aus dem Video:</strong> Dieser reale Eingang soll durch einen neuen Bogeneingang gestaltet werden. Der Abstand des vorgesehenen Pfeilerpaares beträgt 4 m.</figcaption>
           </figure>
 
@@ -736,12 +871,8 @@
             <h3>1. Ursprung wählen</h3>
             <div class="choices">
               <label class="choice"><input type="radio" name="ursprung" value="links" data-save required><span>am linken Fußpunkt</span></label>
-              <label class="choice"><input type="radio" name="ursprung" value="rechts" data-save required><span>am rechten Fußpunkt</span></label>
               <label class="choice"><input type="radio" name="ursprung" value="mitte" data-save required><span>in der Mitte der Bodenlinie</span></label>
-              <label class="choice"><input type="radio" name="ursprung" value="scheitel" data-save required><span>im Scheitelpunkt</span></label>
             </div>
-            <label class="prompt" for="koordinatenBegruendung" style="margin-top:14px">Begründet eure Wahl.</label>
-            <textarea id="koordinatenBegruendung" data-save required placeholder="Diese Lage ist günstig, weil …"></textarea>
             <p class="warning" id="ursprungStatus" style="margin-top:12px" aria-live="polite">Wählt eine Ursprungslage. Für alle Varianten gilt: positive x-Richtung nach rechts, positive y-Richtung nach oben.</p>
           </div>
 
@@ -775,25 +906,25 @@
           <div class="card navy">
             <h3>Euer Paarvorschlag</h3>
             <div class="point-grid">
-              <label class="point-entry"><span class="prompt">Scheitel S</span><input type="text" id="paarS" data-save required inputmode="decimal" autocomplete="off" aria-describedby="paarSFeedback" placeholder="S( … | … )"><span class="coordinate-feedback" id="paarSFeedback"></span></label>
-              <label class="point-entry"><span class="prompt">linker Fußpunkt A</span><input type="text" id="paarA" data-save required inputmode="decimal" autocomplete="off" aria-describedby="paarAFeedback" placeholder="A( … | … )"><span class="coordinate-feedback" id="paarAFeedback"></span></label>
-              <label class="point-entry"><span class="prompt">rechter Fußpunkt B</span><input type="text" id="paarB" data-save required inputmode="decimal" autocomplete="off" aria-describedby="paarBFeedback" placeholder="B( … | … )"><span class="coordinate-feedback" id="paarBFeedback"></span></label>
+              <div class="point-entry"><span class="prompt">Scheitelpunkt</span><div class="coordinate-input"><span aria-hidden="true">S(</span><input type="text" id="paarSx" data-save required inputmode="decimal" autocomplete="off" aria-label="x-Koordinate des Scheitelpunkts S" aria-describedby="paarSFeedback"><span aria-hidden="true">|</span><input type="text" id="paarSy" data-save required inputmode="decimal" autocomplete="off" aria-label="y-Koordinate des Scheitelpunkts S" aria-describedby="paarSFeedback"><span aria-hidden="true">)</span></div><span class="coordinate-feedback" id="paarSFeedback"></span></div>
+              <div class="point-entry"><span class="prompt">Fußpunkt A</span><div class="coordinate-input"><span aria-hidden="true">A(</span><input type="text" id="paarAx" data-save required inputmode="decimal" autocomplete="off" aria-label="x-Koordinate des Fußpunkts A" aria-describedby="paarAFeedback"><span aria-hidden="true">|</span><input type="text" id="paarAy" data-save required inputmode="decimal" autocomplete="off" aria-label="y-Koordinate des Fußpunkts A" aria-describedby="paarAFeedback"><span aria-hidden="true">)</span></div><span class="coordinate-feedback" id="paarAFeedback"></span></div>
+              <div class="point-entry"><span class="prompt">Fußpunkt B</span><div class="coordinate-input"><span aria-hidden="true">B(</span><input type="text" id="paarBx" data-save required inputmode="decimal" autocomplete="off" aria-label="x-Koordinate des Fußpunkts B" aria-describedby="paarBFeedback"><span aria-hidden="true">|</span><input type="text" id="paarBy" data-save required inputmode="decimal" autocomplete="off" aria-label="y-Koordinate des Fußpunkts B" aria-describedby="paarBFeedback"><span aria-hidden="true">)</span></div><span class="coordinate-feedback" id="paarBFeedback"></span></div>
             </div>
             <div class="point-check-panel">
-              <button class="secondary" type="button" id="checkPairPoints" disabled>Punkte prüfen</button>
+              <button class="secondary" type="button" id="checkPairPoints" disabled>Eingaben nach der Kartenkontrolle prüfen</button>
               <p class="point-check-feedback" id="pointCheckFeedback" aria-live="polite">Die automatische Prüfung wird aktiviert, sobald Breite und Höhe eingetragen sind.</p>
             </div>
           </div>
 
           <div class="card gold">
-            <h3>Zwischensicherung am Whiteboard</h3>
-            <p>Vergleicht mindestens zwei mögliche Lagen des Koordinatensystems. Begründet, welche Wahl die Symmetrie besonders gut nutzt und die Rechnung vereinfacht.</p>
-            <p><strong>Nur beim Weg über die gemeinsame Sicherung:</strong> Übertragt anschließend die am Whiteboard festgelegten Punkte. Bei einer individuellen Freigabe könnt ihr direkt mit eurem geprüften Paarvorschlag weiterarbeiten.</p>
-            <div class="point-grid" style="margin-top:12px">
-              <label><span class="prompt">Gemeinsamer S</span><input type="text" id="klasseS" data-save data-common-point placeholder="S( … | … )"></label>
-              <label><span class="prompt">gemeinsamer linker Fußpunkt A</span><input type="text" id="klasseA" data-save data-common-point placeholder="A( … | … )"></label>
-              <label><span class="prompt">gemeinsamer rechter Fußpunkt B</span><input type="text" id="klasseB" data-save data-common-point placeholder="B( … | … )"></label>
-            </div>
+            <h3>Selbstkontrolle mit der passenden Kontrollkarte</h3>
+            <ol>
+              <li>Haltet eure Skizze mit beschrifteten Achsen und eure drei Punkte zuerst selbst fest.</li>
+              <li>Eine Person holt vorne die Karte zu eurer Ursprungslage: Bodenmitte oder linker Fußpunkt.</li>
+              <li>Vergleicht am Platz zu zweit. Erklärt euch: Wie entstehen diese Koordinaten aus 4 m Breite und 3 m Höhe?</li>
+              <li>Korrigiert Abweichungen auf Papier in einer anderen Farbe und übertragt die berichtigten Punkte oben. Klärt offene Fragen mit der Lehrkraft.</li>
+            </ol>
+            <label class="tempo-confirm"><input type="checkbox" id="kartenkontrolle4" data-save required><span>Wir haben mit der passenden Karte kontrolliert, uns die Koordinaten erklärt und nötige Korrekturen festgehalten.</span></label>
           </div>
 
           <details>
@@ -806,18 +937,9 @@
           </details>
 
           <div class="tempo-check">
-            <h3>Lerntempo-Duett · erstes Signal nach Schritt 4</h3>
-            <ol>
-              <li>Tragt eure Kürzel im Feld „Schritt 4“ an der Tafel ein.</li>
-              <li>Der Eintrag zeigt der Lehrkraft, dass eure Skizze und eure drei Punkte prüfbereit sind.</li>
-              <li>Zeigt der Lehrkraft eure Punktelage. Nach der Bestätigung dürft ihr als Paar mit Schritt 5 weiterarbeiten; alternativ wartet ihr auf die gemeinsame Zwischensicherung.</li>
-            </ol>
-            <label class="tempo-confirm"><input type="checkbox" id="duett4" data-save required><span>Wir haben uns nach Schritt 4 gemeinsam an der Tafel eingetragen.</span></label>
-            <div class="choices" role="group" aria-labelledby="freigabeweg4-label" style="margin-top:10px">
-              <p class="prompt" id="freigabeweg4-label"><strong>Wie wurde eure Punktelage bestätigt?</strong></p>
-              <label class="choice"><input type="radio" id="freigabeIndividuell" name="freigabeweg4" value="individuell" data-save required><span>individuell von der Lehrkraft geprüft</span></label>
-              <label class="choice"><input type="radio" id="freigabeGemeinsam" name="freigabeweg4" value="gemeinsam" data-save required><span>in der gemeinsamen Zwischensicherung bestätigt</span></label>
-            </div>
+            <h3>Schritt 4: Koordinaten kontrolliert</h3>
+            <p>Nach abgeschlossener Kontrolle trägt eine Person eure Kürzel im Feld „Schritt 4: Koordinaten kontrolliert“ an der Tafel ein und legt die Karte zurück. Arbeitet anschließend selbstständig mit Schritt 5 weiter.</p>
+            <label class="tempo-confirm"><input type="checkbox" id="duett4" data-save required><span>Wir haben die abgeschlossene Kontrolle an der Tafel eingetragen.</span></label>
           </div>
 
           <p class="gate-message" data-gate-message hidden role="alert"></p>
@@ -831,7 +953,7 @@
         <section id="rechnen" class="step" data-cycle-stage="solution" aria-labelledby="rechnen-title">
           <p class="step-kicker">Schritt 5 · Mathematische Lösung</p>
           <h2 id="rechnen-title" tabindex="-1">Bestimme den Funktionsterm</h2>
-          <p class="lead">Dein vollständiger Rechenweg gehört ins Heft oder auf das Arbeitsblatt. Die HTML gibt nur Orientierung und Hilfen – sie rechnet nicht für dich.</p>
+          <p class="lead">Dein vollständiger Rechenweg gehört ins Heft oder auf das Arbeitsblatt. Vergleicht zunächst, welche Form eure bekannten Angaben besonders gut nutzt. Freiwillige Hilfen findet ihr unter dem Arbeitsplan.</p>
 
           <div class="paper-task">
             <span class="paper-icon" aria-hidden="true">✎</span>
@@ -840,7 +962,8 @@
 
           <div class="card navy">
             <h3>1. Funktionsform auswählen</h3>
-            <p class="prompt">Mit welcher Form möchtet ihr euren Funktionsterm bestimmen?</p>
+            <p class="prompt">Prüft, in welcher Form ihr Angaben aus euren Punkten direkt ablesen könnt und möglichst wenige Unbekannte bestimmen müsst.</p>
+            <p>Nutzt dabei auch die Lage des höchsten Punktes und die Symmetrie eures Bogens. Begründet eure Wahl kurz im Gespräch.</p>
             <div class="choices">
               <label class="choice"><input type="radio" name="termform" value="scheitelpunktform" data-save required><span>Scheitelpunktform<br><small>f(x) = a(x − d)² + e</small></span></label>
               <label class="choice"><input type="radio" name="termform" value="normalform" data-save required><span>Normalform<br><small>f(x) = ax² + bx + c</small></span></label>
@@ -869,6 +992,29 @@
             <summary>Hilfe zur Normalform</summary>
             <div class="formula">f(x) = ax² + bx + c</div>
             <p>Setzt eure drei bekannten Punkte nacheinander ein. So entstehen Gleichungen für a, b und c. Nutzt dabei eure Ursprungslage: Liegt der Ursprung auf einem Fußpunkt, gilt direkt c = 0; liegt die y-Achse auf der Symmetrieachse, vereinfacht sich der Ansatz zu b = 0.</p>
+          </details>
+          <details id="gleichungssystemHilfe">
+            <summary>Notfallhilfe: Gleichungssystem schrittweise lösen</summary>
+            <div class="equation-solver">
+              <p><strong>Nur für den Weg über die Normalform:</strong> Übertragt euer bereits aufgestelltes Gleichungssystem. Die Buchstaben a, b und c sind vorgegeben; ihr tragt nur die vier Zahlen jeder Gleichung ein.</p>
+              <details>
+                <summary>Wie entsteht eine Gleichung aus einem Punkt?</summary>
+                <p>Setzt für einen Punkt P(x | y) seine Werte in <strong>y = ax² + bx + c</strong> ein. Vor a steht dann x², vor b steht x, vor c steht 1 und rechts steht y.</p>
+              </details>
+              <fieldset>
+                <legend>Euer Gleichungssystem</legend>
+                <div class="equation-row"><strong>I:</strong><input type="text" id="gls11" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor a in Gleichung 1"><span>a +</span><input type="text" id="gls12" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor b in Gleichung 1"><span>b +</span><input type="text" id="gls13" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor c in Gleichung 1"><span>c =</span><input type="text" id="gls14" data-save inputmode="decimal" autocomplete="off" aria-label="rechte Seite von Gleichung 1"></div>
+                <div class="equation-row"><strong>II:</strong><input type="text" id="gls21" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor a in Gleichung 2"><span>a +</span><input type="text" id="gls22" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor b in Gleichung 2"><span>b +</span><input type="text" id="gls23" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor c in Gleichung 2"><span>c =</span><input type="text" id="gls24" data-save inputmode="decimal" autocomplete="off" aria-label="rechte Seite von Gleichung 2"></div>
+                <div class="equation-row"><strong>III:</strong><input type="text" id="gls31" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor a in Gleichung 3"><span>a +</span><input type="text" id="gls32" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor b in Gleichung 3"><span>b +</span><input type="text" id="gls33" data-save inputmode="decimal" autocomplete="off" aria-label="Koeffizient vor c in Gleichung 3"><span>c =</span><input type="text" id="gls34" data-save inputmode="decimal" autocomplete="off" aria-label="rechte Seite von Gleichung 3"></div>
+              </fieldset>
+              <div class="solver-controls">
+                <button type="button" id="solverStart">Eingabe prüfen und starten</button>
+                <button type="button" id="solverNext" disabled>Nächsten Lösungsschritt zeigen</button>
+                <button class="secondary" type="button" id="solverReset">Hilfe zurücksetzen</button>
+              </div>
+              <p class="solver-status" id="solverStatus" aria-live="polite">Die Hilfe bleibt freiwillig und beeinflusst den Seitenwechsel nicht.</p>
+              <ol class="solver-steps" id="solverSteps" aria-live="polite"></ol>
+            </div>
           </details>
           <details>
             <summary>Hilfe zum Prüfen eures Ansatzes</summary>
@@ -918,7 +1064,7 @@
           <details>
             <summary>Entwurfsbild aus dem Video mit eurem Modell vergleichen</summary>
             <figure class="entrance-reference" style="margin-top:12px">
-              <img src="HGE_Eingang_Visualisierung_Bogen_b4_h3_2026-08-31.png" alt="Fotorealistische Konzeptvisualisierung eines dunkelblauen parabolischen Eingangsbogens mit goldener Innenkante vor dem Schuleingang" loading="lazy">
+              <img src="Entwurf.png" alt="Fotorealistische Konzeptvisualisierung eines dunkelblauen parabolischen Eingangsbogens mit goldener Innenkante vor dem Schuleingang" loading="lazy">
               <figcaption><strong>Rückkehr zur Realsituation:</strong> Die Visualisierung ist ein unverbindlicher Gestaltungsvorschlag und keine technische Bauzeichnung. Prüft, ob euer Funktionsterm die dargestellte Spannweite, Höhe, Symmetrie und Öffnungsrichtung beschreibt.</figcaption>
             </figure>
           </details>
@@ -949,7 +1095,7 @@
 
           <div class="card gold">
             <h3>Neue Perspektive</h3>
-            <p>Lege den Ursprung nun in den linken Fußpunkt des Eingangsbogens. Breite und Höhe des Bogens bleiben unverändert.</p>
+            <p>Wechsle zur anderen Ursprungslage: von der Bodenmitte zum linken Fußpunkt oder umgekehrt. Breite und Höhe des Bogens bleiben unverändert.</p>
             <label class="prompt" for="schnellPunkte">Notiere die drei charakteristischen Punkte im neuen Koordinatensystem.</label>
             <input type="text" id="schnellPunkte" data-save required placeholder="A( … | … ), S( … | … ), B( … | … )">
           </div>
@@ -980,7 +1126,7 @@
       </main>
     </div>
 
-    <p class="footer">Mission HGE-Eingang · Klasse 10E · Revision Video und Visualisierung vom 31.08.2026</p>
+    <p class="footer">Mission HGE-Eingang · Klasse 10E · Stand: 19.09.2026</p>
   </div>
 
   <script>
@@ -991,14 +1137,39 @@
       bogenBreiteMeter: 4,
       bogenHoeheMeter: 3,
       koordinatenToleranzMeter: 0.01,
-      speicherSchluessel: "hge-eingang-modellierung-v6"
+      speicherSchluessel: "hge-eingang-modellierung-v9-selbstkontrolle"
     };
 
     const POINT_FIELDS = {
-      S: document.getElementById("paarS"),
-      A: document.getElementById("paarA"),
-      B: document.getElementById("paarB")
+      S: {
+        x: document.getElementById("paarSx"),
+        y: document.getElementById("paarSy"),
+        feedback: document.getElementById("paarSFeedback")
+      },
+      A: {
+        x: document.getElementById("paarAx"),
+        y: document.getElementById("paarAy"),
+        feedback: document.getElementById("paarAFeedback")
+      },
+      B: {
+        x: document.getElementById("paarBx"),
+        y: document.getElementById("paarBy"),
+        feedback: document.getElementById("paarBFeedback")
+      }
     };
+
+    const POINT_INPUTS = Object.values(POINT_FIELDS).flatMap(point => [point.x, point.y]);
+    const SOLVER_ROWS = [
+      ["gls11", "gls12", "gls13", "gls14"],
+      ["gls21", "gls22", "gls23", "gls24"],
+      ["gls31", "gls32", "gls33", "gls34"]
+    ].map(row => row.map(id => document.getElementById(id)));
+    const SOLVER_INPUTS = SOLVER_ROWS.flat();
+    const solverStatus = document.getElementById("solverStatus");
+    const solverStepsElement = document.getElementById("solverSteps");
+    const solverNextButton = document.getElementById("solverNext");
+    let solverPlan = [];
+    let solverStepIndex = 0;
 
     const steps = [...document.querySelectorAll(".step")];
     const navButtons = [...document.querySelectorAll(".step-nav button")];
@@ -1006,6 +1177,7 @@
     const saveFields = [...document.querySelectorAll("[data-save]")];
     const saveState = document.getElementById("saveState");
     let furthestUnlocked = 0;
+    let currentStepId = "auftrag";
 
     function readLocalWork() {
       try {
@@ -1057,8 +1229,18 @@
         else button.removeAttribute("aria-current");
       });
 
+      currentStepId = id;
       const activeCycle = target.dataset.cycleStage;
-      cycleItems.forEach(item => item.classList.toggle("active", item.dataset.cycle === activeCycle));
+      const activeIndex = cycleItems.findIndex(item => item.dataset.cycle === activeCycle);
+      cycleItems.forEach((item, index) => {
+        item.classList.toggle("active", index === activeIndex);
+        item.classList.toggle("done", index < activeIndex);
+        if (index === activeIndex) item.setAttribute("aria-current", "step");
+        else item.removeAttribute("aria-current");
+      });
+      document.getElementById("cycleStatus").textContent =
+        `Modellierungskreislauf · ${activeIndex + 1} von ${cycleItems.length}: ${cycleItems[activeIndex].textContent}`;
+      saveWork();
 
       if (moveFocus) {
         target.querySelector("h2")?.focus({ preventScroll: true });
@@ -1081,16 +1263,6 @@
       }
     }
 
-    function updateApprovalRequirements() {
-      const commonPath = document.getElementById("freigabeGemeinsam")?.checked;
-      document.querySelectorAll("[data-common-point]").forEach(field => {
-        field.toggleAttribute("required", Boolean(commonPath));
-        if (!commonPath) {
-          field.removeAttribute("aria-invalid");
-          field.closest("label")?.classList.remove("field-missing");
-        }
-      });
-    }
 
     function measurementsReady() {
       return Number.isFinite(CONFIG.bogenBreiteMeter)
@@ -1109,48 +1281,243 @@
       const half = width / 2;
       const variants = {
         links: { A: [0, 0], S: [half, height], B: [width, 0] },
-        rechts: { A: [-width, 0], S: [-half, height], B: [0, 0] },
-        mitte: { A: [-half, 0], S: [0, height], B: [half, 0] },
-        scheitel: { A: [-half, -height], S: [0, 0], B: [half, -height] }
+        mitte: { A: [-half, 0], S: [0, height], B: [half, 0] }
       };
       return variants[origin] || null;
     }
 
-    function parseCoordinate(value) {
-      const normalized = value.trim().replace(/\s+/g, "").replace(/,/g, ".");
-      const number = "-?(?:\\d+(?:\\.\\d+)?|\\.\\d+)";
-      const match = normalized.match(new RegExp(`^[A-Za-z]?\\((${number})\\|(${number})\\)$`));
-      if (!match) return null;
-      return [Number(match[1]), Number(match[2])];
+    function parseCoordinateValue(value) {
+      const normalized = value.trim().replace(/,/g, ".");
+      if (!/^-?(?:\d+(?:\.\d+)?|\.\d+)$/.test(normalized)) return null;
+      const parsed = Number(normalized);
+      return Number.isFinite(parsed) ? parsed : null;
+    }
+
+    function pointValue(point) {
+      const x = parseCoordinateValue(point.x.value);
+      const y = parseCoordinateValue(point.y.value);
+      return x === null || y === null ? null : [x, y];
     }
 
     function nearlyEqual(actual, expected) {
       return Math.abs(actual - expected) <= CONFIG.koordinatenToleranzMeter;
     }
 
-    function clearPointCheck() {
-      Object.entries(POINT_FIELDS).forEach(([key, field]) => {
-        field.classList.remove("coordinate-correct", "coordinate-incorrect");
+    function pointMatches(actual, expected) {
+      return Boolean(actual)
+        && nearlyEqual(actual[0], expected[0])
+        && nearlyEqual(actual[1], expected[1]);
+    }
+
+    function samePoint(first, second) {
+      return Boolean(first && second)
+        && nearlyEqual(first[0], second[0])
+        && nearlyEqual(first[1], second[1]);
+    }
+
+    function formatSolverNumber(value) {
+      const cleaned = Math.abs(value) < 1e-10 ? 0 : value;
+      const rounded = Math.round(cleaned * 10000) / 10000;
+      return String(rounded).replace(".", ",");
+    }
+
+    function solverEquationText(row) {
+      const variables = ["a", "b", "c"];
+      const left = row.slice(0, 3)
+        .map((coefficient, index) => `${formatSolverNumber(coefficient)}${variables[index]}`)
+        .join(" + ")
+        .replace(/\+ -/g, "− ");
+      return `${left} = ${formatSolverNumber(row[3])}`;
+    }
+
+    function copySolverMatrix(matrix) {
+      return matrix.map(row => [...row]);
+    }
+
+    function readSolverMatrix() {
+      let complete = true;
+      const matrix = SOLVER_ROWS.map(row => row.map(field => {
         field.removeAttribute("aria-invalid");
-        document.getElementById(`${field.id}Feedback`).textContent = "";
+        const value = parseCoordinateValue(field.value);
+        if (value === null) {
+          field.setAttribute("aria-invalid", "true");
+          complete = false;
+        }
+        return value;
+      }));
+      return complete ? matrix : null;
+    }
+
+    function buildSolverPlan(matrix) {
+      const working = copySolverMatrix(matrix);
+      const plan = [{
+        title: "Ausgangssystem",
+        explanation: "Kontrolliert zuerst, ob jede Zeile wirklich aus einem eurer drei Punkte entstanden ist.",
+        matrix: copySolverMatrix(working)
+      }];
+      const rowNames = ["I", "II", "III"];
+      const tolerance = 1e-10;
+
+      for (let column = 0; column < 3; column += 1) {
+        let pivotRow = column;
+        for (let row = column + 1; row < 3; row += 1) {
+          if (Math.abs(working[row][column]) > Math.abs(working[pivotRow][column])) pivotRow = row;
+        }
+        if (Math.abs(working[pivotRow][column]) < tolerance) {
+          throw new Error("Das eingegebene Gleichungssystem besitzt keine eindeutige Lösung. Prüft besonders, ob drei verschiedene Punkte eingesetzt wurden.");
+        }
+
+        if (pivotRow !== column) {
+          [working[column], working[pivotRow]] = [working[pivotRow], working[column]];
+          plan.push({
+            title: "Gleichungen tauschen",
+            explanation: `Tausche Gleichung ${rowNames[column]} und ${rowNames[pivotRow]}, damit die nächste Unbekannte gut beseitigt werden kann.`,
+            matrix: copySolverMatrix(working)
+          });
+        }
+
+        const pivot = working[column][column];
+        if (Math.abs(pivot - 1) > tolerance) {
+          for (let entry = column; entry < 4; entry += 1) working[column][entry] /= pivot;
+          plan.push({
+            title: `Gleichung ${rowNames[column]} vereinfachen`,
+            explanation: `Teile Gleichung ${rowNames[column]} durch ${formatSolverNumber(pivot)}.`,
+            matrix: copySolverMatrix(working)
+          });
+        }
+
+        for (let row = column + 1; row < 3; row += 1) {
+          const factor = working[row][column];
+          if (Math.abs(factor) < tolerance) continue;
+          for (let entry = column; entry < 4; entry += 1) {
+            working[row][entry] -= factor * working[column][entry];
+            if (Math.abs(working[row][entry]) < tolerance) working[row][entry] = 0;
+          }
+          plan.push({
+            title: `${["a", "b", "c"][column]} beseitigen`,
+            explanation: `Rechne ${rowNames[row]} − (${formatSolverNumber(factor)}) · ${rowNames[column]}.`,
+            matrix: copySolverMatrix(working)
+          });
+        }
+      }
+
+      const solution = [0, 0, 0];
+      for (let row = 2; row >= 0; row -= 1) {
+        let rightSide = working[row][3];
+        for (let column = row + 1; column < 3; column += 1) rightSide -= working[row][column] * solution[column];
+        solution[row] = rightSide / working[row][row];
+      }
+
+      plan.push({
+        title: "Rückwärts einsetzen",
+        explanation: `Aus der letzten Gleichung folgt c = ${formatSolverNumber(solution[2])}. Setzt diesen Wert darüber ein; so erhaltet ihr b = ${formatSolverNumber(solution[1])} und danach a = ${formatSolverNumber(solution[0])}.`,
+        matrix: null
+      });
+      plan.push({
+        title: "Ergebnis prüfen",
+        explanation: `a = ${formatSolverNumber(solution[0])}, b = ${formatSolverNumber(solution[1])}, c = ${formatSolverNumber(solution[2])}. Damit lautet der Term f(x) = (${formatSolverNumber(solution[0])})x² + (${formatSolverNumber(solution[1])})x + (${formatSolverNumber(solution[2])}). Setzt zur Kontrolle alle drei Punkte ein und übertragt den vollständigen Rechenweg in euer Heft.`,
+        matrix: null,
+        final: true
+      });
+      return plan;
+    }
+
+    function appendSolverStep(step) {
+      const item = document.createElement("li");
+      item.className = "solver-step";
+      const heading = document.createElement("strong");
+      heading.textContent = step.title;
+      item.appendChild(heading);
+      const explanation = document.createElement("p");
+      explanation.textContent = step.explanation;
+      item.appendChild(explanation);
+      if (step.matrix) {
+        step.matrix.forEach((row, index) => {
+          const line = document.createElement("span");
+          line.className = "solver-system-line";
+          line.textContent = `${["I", "II", "III"][index]}: ${solverEquationText(row)}`;
+          item.appendChild(line);
+        });
+      }
+      solverStepsElement.appendChild(item);
+      item.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function showNextSolverStep() {
+      if (solverStepIndex >= solverPlan.length) return;
+      const step = solverPlan[solverStepIndex];
+      appendSolverStep(step);
+      solverStepIndex += 1;
+      const finished = solverStepIndex >= solverPlan.length;
+      solverNextButton.disabled = finished;
+      solverStatus.classList.toggle("success", finished);
+      solverStatus.classList.remove("error");
+      solverStatus.textContent = finished
+        ? "Das Gleichungssystem ist vollständig gelöst. Prüft den Term jetzt mit euren drei Punkten."
+        : `Schritt ${solverStepIndex} von ${solverPlan.length} ist sichtbar. Versucht den nächsten Schritt zuerst selbst.`;
+    }
+
+    function resetEquationSolver(clearInputs = false) {
+      if (clearInputs) SOLVER_INPUTS.forEach(field => { field.value = ""; });
+      SOLVER_INPUTS.forEach(field => field.removeAttribute("aria-invalid"));
+      solverPlan = [];
+      solverStepIndex = 0;
+      solverStepsElement.textContent = "";
+      solverNextButton.disabled = true;
+      solverStatus.classList.remove("error", "success");
+      solverStatus.textContent = "Die Hilfe bleibt freiwillig und beeinflusst den Seitenwechsel nicht.";
+    }
+
+    function startEquationSolver() {
+      resetEquationSolver(false);
+      const matrix = readSolverMatrix();
+      if (!matrix) {
+        solverStatus.classList.add("error");
+        solverStatus.textContent = "Tragt in alle zwölf Felder eine Zahl ein. Verwendet 0, wenn ein Term nicht vorkommt.";
+        SOLVER_INPUTS.find(field => field.hasAttribute("aria-invalid"))?.focus({ preventScroll: true });
+        return;
+      }
+      try {
+        solverPlan = buildSolverPlan(matrix);
+        showNextSolverStep();
+      } catch (error) {
+        solverStatus.classList.add("error");
+        solverStatus.textContent = error.message;
+      }
+    }
+
+    function setPointStatus(point, correct, message) {
+      [point.x, point.y].forEach(field => {
+        field.classList.toggle("coordinate-correct", correct);
+        field.classList.toggle("coordinate-incorrect", !correct);
+        field.toggleAttribute("aria-invalid", !correct);
+      });
+      point.feedback.textContent = message;
+    }
+
+    function clearPointCheck() {
+      Object.values(POINT_FIELDS).forEach(point => {
+        [point.x, point.y].forEach(field => {
+          field.classList.remove("coordinate-correct", "coordinate-incorrect");
+          field.removeAttribute("aria-invalid");
+        });
+        point.feedback.textContent = "";
       });
       const feedback = document.getElementById("pointCheckFeedback");
       feedback.classList.remove("success", "error");
       feedback.textContent = measurementsReady()
-        ? "Tragt alle drei Punkte ein und prüft euren Vorschlag. Dezimalzahlen können mit Komma oder Punkt geschrieben werden."
+        ? "Haltet euren eigenen Vorschlag fest. Kontrolliert danach mit der passenden Karte; anschließend könnt ihr eure Eingaben zusätzlich prüfen. Dezimalzahlen können mit Komma oder Punkt geschrieben werden."
         : "Die automatische Prüfung wird aktiviert, sobald Breite und Höhe eingetragen sind.";
     }
 
     function updateOriginStatus() {
       const origin = selectedOrigin();
       const labels = {
-        links: "linken Fußpunkt",
-        rechts: "rechten Fußpunkt",
-        mitte: "Mitte der Bodenlinie",
-        scheitel: "Scheitelpunkt"
+        links: "am linken Fußpunkt",
+        mitte: "in der Mitte der Bodenlinie"
       };
       document.getElementById("ursprungStatus").textContent = origin
-        ? `Gewählt: Ursprung im ${labels[origin]}. Positive x-Richtung nach rechts, positive y-Richtung nach oben.`
+        ? `Gewählt: Ursprung ${labels[origin]}. Positive x-Richtung nach rechts, positive y-Richtung nach oben.`
         : "Wählt eine Ursprungslage. Für alle Varianten gilt: positive x-Richtung nach rechts, positive y-Richtung nach oben.";
     }
 
@@ -1159,31 +1526,45 @@
       const origin = selectedOrigin();
       if (!origin) return false;
       const expected = expectedPoints(origin);
-      let allCorrect = true;
+      const actualS = pointValue(POINT_FIELDS.S);
+      const actualA = pointValue(POINT_FIELDS.A);
+      const actualB = pointValue(POINT_FIELDS.B);
 
-      Object.entries(POINT_FIELDS).forEach(([key, field]) => {
-        const parsed = parseCoordinate(field.value);
-        const correct = Boolean(parsed)
-          && nearlyEqual(parsed[0], expected[key][0])
-          && nearlyEqual(parsed[1], expected[key][1]);
-        field.classList.toggle("coordinate-correct", correct);
-        field.classList.toggle("coordinate-incorrect", !correct);
-        field.toggleAttribute("aria-invalid", !correct);
-        document.getElementById(`${field.id}Feedback`).textContent = correct
-          ? "✓ richtig"
-          : parsed ? "Noch nicht richtig – prüft Ursprung, Vorzeichen und Maße." : "Schreibweise: S(x | y)";
-        allCorrect = allCorrect && correct;
-      });
+      const sCorrect = pointMatches(actualS, expected.S);
+      const aIsFoot = pointMatches(actualA, expected.A) || pointMatches(actualA, expected.B);
+      const bIsFoot = pointMatches(actualB, expected.A) || pointMatches(actualB, expected.B);
+      const duplicateFeet = aIsFoot && bIsFoot && samePoint(actualA, actualB);
+      const aCorrect = aIsFoot && !duplicateFeet;
+      const bCorrect = bIsFoot && !duplicateFeet;
+      const allCorrect = sCorrect && aCorrect && bCorrect;
+
+      setPointStatus(
+        POINT_FIELDS.S,
+        sCorrect,
+        sCorrect ? "✓ richtig" : actualS ? "Noch nicht richtig – prüft Ursprung, Vorzeichen und Maße." : "Tragt beide Koordinaten ein."
+      );
+      setPointStatus(
+        POINT_FIELDS.A,
+        aCorrect,
+        aCorrect ? "✓ richtiger Fußpunkt" : duplicateFeet ? "A und B dürfen nicht denselben Fußpunkt enthalten." : actualA ? "Noch kein passender Fußpunkt." : "Tragt beide Koordinaten ein."
+      );
+      setPointStatus(
+        POINT_FIELDS.B,
+        bCorrect,
+        bCorrect ? "✓ richtiger Fußpunkt" : duplicateFeet ? "A und B dürfen nicht denselben Fußpunkt enthalten." : actualB ? "Noch kein passender Fußpunkt." : "Tragt beide Koordinaten ein."
+      );
 
       const feedback = document.getElementById("pointCheckFeedback");
       feedback.classList.toggle("success", allCorrect);
       feedback.classList.toggle("error", !allCorrect);
       feedback.textContent = allCorrect
-        ? "Alle drei Punkte passen zu eurer gewählten Ursprungslage."
-        : "Mindestens ein Punkt passt noch nicht zur gewählten Ursprungslage.";
+        ? "Alle drei Punkte passen zu eurer gewählten Ursprungslage. Die beiden Fußpunkte A und B durften vertauscht werden."
+        : duplicateFeet
+          ? "A und B müssen die beiden verschiedenen Fußpunkte enthalten."
+          : "Mindestens ein Punkt passt noch nicht zur gewählten Ursprungslage.";
 
       if (!allCorrect && announce) {
-        const firstIncorrect = Object.values(POINT_FIELDS).find(field => field.classList.contains("coordinate-incorrect"));
+        const firstIncorrect = POINT_INPUTS.find(field => field.classList.contains("coordinate-incorrect"));
         firstIncorrect?.focus({ preventScroll: true });
         firstIncorrect?.scrollIntoView({ behavior: "smooth", block: "center" });
       }
@@ -1193,7 +1574,6 @@
     function validateStep(id, announce = true) {
       const step = document.getElementById(id);
       if (!step) return false;
-      if (id === "punkte") updateApprovalRequirements();
       clearValidation(step);
 
       const required = [...step.querySelectorAll("[required]")];
@@ -1253,7 +1633,7 @@
     }
 
     function saveWork() {
-      const data = {};
+      const data = { _currentStep: currentStepId };
       saveFields.forEach(field => {
         const key = field.id || `${field.name}:${field.value}`;
         data[key] = fieldValue(field);
@@ -1272,6 +1652,15 @@
           if (field.type === "checkbox" || field.type === "radio") field.checked = Boolean(data[key]);
           else field.value = data[key];
         });
+        currentStepId = steps.some(step => step.id === data._currentStep) ? data._currentStep : "auftrag";
+        // Frühere, nicht mehr angebotene Ursprünge dürfen keine Freigabe übernehmen.
+        if (data["ursprung:rechts"] || data["ursprung:scheitel"]) {
+          document.querySelectorAll('input[name="ursprung"]').forEach(field => { field.checked = false; });
+          POINT_INPUTS.forEach(field => { field.value = ""; });
+          document.getElementById("kartenkontrolle4").checked = false;
+          document.getElementById("duett4").checked = false;
+          currentStepId = "austauschen";
+        }
         saveState.textContent = "Gespeicherter Arbeitsstand geladen.";
       } catch {
         saveState.textContent = "Der frühere Arbeitsstand konnte nicht geladen werden.";
@@ -1290,7 +1679,7 @@
 
       if (measurementsReady()) {
         document.getElementById("messHinweis").textContent = "Diese Maße sind verbindliche Bauvorgaben für die heutige Modellierung.";
-        checkButton.disabled = false;
+        checkButton.disabled = !document.getElementById("kartenkontrolle4").checked;
       } else {
         document.getElementById("messHinweis").textContent = widthReady
           ? "Die Breite wurde mit 4 m gemessen. Ergänzt werden muss noch die maximale Höhe h des geplanten Bogens."
@@ -1325,13 +1714,20 @@
     });
 
     function handleFieldChange(event) {
+      if (event.target.name === "ursprung" || POINT_INPUTS.includes(event.target)) {
+        document.getElementById("kartenkontrolle4").checked = false;
+        document.getElementById("duett4").checked = false;
+      }
+      if (event.target.id === "kartenkontrolle4" && !event.target.checked) document.getElementById("duett4").checked = false;
+      document.getElementById("checkPairPoints").disabled = !measurementsReady() || !document.getElementById("kartenkontrolle4").checked;
       saveWork();
-      if (event.target.name === "freigabeweg4") updateApprovalRequirements();
+      restoreUnlockedSteps();
       if (event.target.name === "ursprung") {
         updateOriginStatus();
         clearPointCheck();
       }
-      if (Object.values(POINT_FIELDS).includes(event.target)) clearPointCheck();
+      if (POINT_INPUTS.includes(event.target)) clearPointCheck();
+      if (SOLVER_INPUTS.includes(event.target)) resetEquationSolver(false);
       event.target.removeAttribute("aria-invalid");
       event.target.closest("label")?.classList.remove("field-missing");
       event.target.closest(".choices")?.classList.remove("field-missing");
@@ -1341,6 +1737,12 @@
     saveFields.forEach(field => field.addEventListener("change", handleFieldChange));
 
     document.getElementById("checkPairPoints").addEventListener("click", () => checkPairPoints(true));
+    document.getElementById("solverStart").addEventListener("click", startEquationSolver);
+    document.getElementById("solverNext").addEventListener("click", showNextSolverStep);
+    document.getElementById("solverReset").addEventListener("click", () => {
+      resetEquationSolver(true);
+      saveWork();
+    });
 
     document.getElementById("resetButton").addEventListener("click", () => {
       if (!window.confirm("Möchtest du alle Eingaben auf diesem Gerät wirklich löschen?")) return;
@@ -1350,9 +1752,9 @@
         else field.value = "";
       });
       saveState.textContent = "Alle lokalen Eingaben wurden gelöscht.";
-      updateApprovalRequirements();
       updateOriginStatus();
       clearPointCheck();
+      resetEquationSolver(false);
       furthestUnlocked = 0;
       updateNavigationLocks();
       showStep("auftrag");
@@ -1368,10 +1770,9 @@
 
     restoreWork();
     renderMeasurements();
-    updateApprovalRequirements();
     updateOriginStatus();
     restoreUnlockedSteps();
-    showStep("auftrag", false);
+    showStep(steps[Math.min(Math.max(0, stepIndex(currentStepId)), furthestUnlocked)].id, false);
   </script>
 </body>
 </html>
