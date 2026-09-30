@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Trifft der Wurf?</title>
+  <style>
+    :root {
+      --navy:#15385f; --navy-dark:#0c2743; --gold:#e4b21b; --gold-soft:#fff7d6;
+      --green:#1f7a5c; --green-soft:#e8f5ef; --ink:#16212c; --muted:#586574;
+      --line:#d7dee6; --surface:#fff; --page:#eef3f7; --danger:#a33232;
+      --shadow:0 10px 26px rgba(21,56,95,.09); --radius:18px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:radial-gradient(circle at 12% 0%,rgba(228,178,27,.14),transparent 28rem),var(--page);font-family:"Segoe UI",Arial,sans-serif;line-height:1.5}
+    button,input,textarea{font:inherit} button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid rgba(228,178,27,.9);outline-offset:3px}
+    .skip-link{position:fixed;left:12px;top:-60px;z-index:50;padding:10px 14px;border-radius:8px;color:#fff;background:var(--navy-dark)} .skip-link:focus{top:12px}
+    .shell{width:min(1060px,calc(100% - 24px));margin:20px auto 48px}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:28px;border-radius:var(--radius);color:#fff;background:linear-gradient(135deg,var(--navy-dark),var(--navy));box-shadow:var(--shadow)}
+    .eyebrow{margin:0 0 6px;color:#ffe58d;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(2rem,5vw,3.25rem);line-height:1.05}.hero p:last-child{max-width:680px;margin:12px 0 0;color:#e8f0f7;font-size:1.04rem}
+    .brand{display:grid;justify-items:center;gap:8px;min-width:110px;color:#e8f0f7;font-size:.8rem}.brand img{width:68px;height:68px;object-fit:contain;border:3px solid rgba(255,255,255,.8);border-radius:16px;background:#fff}
+    .privacy{display:flex;gap:10px;align-items:center;margin:12px 0 0;padding:10px 14px;border:1px solid #cce5da;border-radius:12px;color:#174b3b;background:var(--green-soft);font-size:.9rem}
+    .layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px;align-items:start;margin-top:18px}.sidebar{position:sticky;top:12px;display:grid;gap:14px}
+    .panel,.step,.card{border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}.panel{padding:16px;border-radius:16px}.panel h2{margin:0 0 10px;color:var(--navy);font-size:1rem}
+    .step-nav{display:grid;gap:7px}.step-nav button{display:grid;grid-template-columns:30px minmax(0,1fr) 28px;gap:9px;align-items:center;width:100%;min-height:46px;padding:7px 10px;border:1px solid transparent;border-radius:11px;color:var(--muted);background:transparent;text-align:left;cursor:pointer}.step-nav button:hover:not(:disabled){background:#f3f6f9}.step-nav button.active{color:#fff;background:var(--navy)}.step-nav button:disabled{cursor:not-allowed;opacity:.55}.number{display:grid;place-items:center;width:28px;height:28px;border:1px solid currentColor;border-radius:50%;font-weight:800}.state{text-align:center;font-weight:800}
+    .progress-track{height:10px;overflow:hidden;border-radius:99px;background:#e5eaf0}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f2cf5f);transition:width .25s}.progress-text{margin:8px 0 0;color:var(--muted);font-size:.88rem}
+    .reset{width:100%;padding:10px;border:1px solid #bdc7d2;border-radius:10px;color:var(--navy);background:#fff;cursor:pointer}.reset:hover{background:#f4f7fa}
+    main{min-width:0}.step{display:none;padding:clamp(20px,4vw,34px);border-radius:var(--radius)}.step.active{display:block}.step-kicker{margin:0 0 4px;color:var(--green);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.step h2{margin:0 0 18px;color:var(--navy);font-size:clamp(1.55rem,4vw,2.2rem);line-height:1.15}.step h3{margin:0 0 10px;color:var(--navy);font-size:1.08rem}
+    .context-image{width:100%;max-height:310px;object-fit:cover;border-radius:15px;border:1px solid var(--line)}.caption{margin:7px 0 0;color:var(--muted);font-size:.86rem}
+    .card{margin:16px 0;padding:18px;border-radius:14px;box-shadow:none}.card.gold{border-color:#ead27a;background:var(--gold-soft)}.card.green{border-color:#b8decf;background:var(--green-soft)}
+    .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.fact{padding:12px;border-left:4px solid var(--gold);border-radius:8px;background:#f7f9fb}.fact strong{display:block;color:var(--navy)}
+    label.field{display:block;margin:16px 0 6px;color:var(--navy);font-weight:750}textarea,input[type="text"]{width:100%;padding:12px;border:2px solid #c7d1dc;border-radius:10px;background:#fff;color:var(--ink)}textarea{min-height:104px;resize:vertical}.invalid{border-color:var(--danger)!important;background:#fff8f8!important}.validation{min-height:1.4em;margin:6px 0 0;color:var(--danger);font-size:.9rem;font-weight:700}
+    .choices{display:grid;gap:9px}.choice{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid #ccd5df;border-radius:10px;background:#fff}.choice input{margin-top:4px;accent-color:var(--navy)}
+    details{margin:10px 0;border:1px solid #ccd5df;border-radius:10px;background:#fff}summary{padding:12px 14px;color:var(--navy);font-weight:800;cursor:pointer}details>div{padding:0 14px 14px;color:#334454}
+    .equation{margin:14px 0;padding:15px;border-left:5px solid var(--navy);border-radius:8px;background:#eef3fb;font-family:Cambria,"Times New Roman",serif;font-size:1.18rem}.inline-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.check-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end}.check{padding:12px 16px;border:0;border-radius:10px;color:#fff;background:var(--navy);font-weight:800;cursor:pointer}.check:hover{background:var(--navy-dark)}.feedback{margin:10px 0 0;font-weight:800}.feedback.ok{color:var(--green)}.feedback.no{color:var(--danger)}
+    .graph{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}.graph text{font:14px "Segoe UI",Arial,sans-serif;fill:#415264}.graph .grid{stroke:#dfe5eb;stroke-width:1}.graph .axis{stroke:#15385f;stroke-width:2}.graph .curve{fill:none;stroke:#e4b21b;stroke-width:5}.graph .point{fill:#15385f}.graph .rim{stroke:#1f7a5c;stroke-width:6}
+    .actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.actions button{min-width:130px;padding:12px 16px;border-radius:10px;font-weight:800;cursor:pointer}.back{border:1px solid #bdc7d2;color:var(--navy);background:#fff}.next{border:0;color:#fff;background:var(--navy)}.next:hover{background:var(--navy-dark)}
+    .model-cycle{display:grid;grid-template-columns:1fr 1fr;gap:8px}.cycle-item{padding:9px;border:1px solid #d4dce5;border-radius:9px;color:#53616f;background:#f7f9fb;font-size:.88rem}.cycle-item.current{border-color:var(--gold);color:var(--navy);background:var(--gold-soft);font-weight:800}
+    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:800px){.hero{grid-template-columns:1fr}.brand{grid-template-columns:auto 1fr;justify-items:start}.layout{grid-template-columns:1fr}.sidebar{position:static}.facts,.inline-row{grid-template-columns:1fr}.step-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.step-nav button{grid-template-columns:26px 1fr 22px;font-size:.88rem}.actions{flex-direction:column-reverse}.actions button{width:100%}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#lernweg">Direkt zum Lernweg</a>
+  <div class="shell">
+    <header class="hero">
+      <div><p class="eyebrow">Quadratische Funktionen · Modellieren</p><h1>Trifft der Wurf?</h1><p>Entwickelt ein Parabelmodell für die Flugbahn und prüft, was es über den Korbwurf aussagt.</p></div>
+      <div class="brand"><img src="HGE_Logo.png" alt="Logo der Holzkamp Gesamtschule"><span>Luca Hauswerth</span></div>
+    </header>
+    <p class="privacy"><span aria-hidden="true">✓</span><span>Eure Eingaben bleiben ausschließlich auf diesem Gerät und werden automatisch zwischengespeichert.</span></p>
+    <div class="layout">
+      <aside class="sidebar" aria-label="Navigation und Fortschritt">
+        <section class="panel"><h2>Dein Lernweg</h2><nav class="step-nav" id="stepNav"></nav></section>
+        <section class="panel"><h2>Fortschritt</h2><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><p class="progress-text" id="progressText">Schritt 1 von 7</p></section>
+        <section class="panel"><h2>Modellierungskreislauf</h2><div class="model-cycle" id="modelCycle"><div class="cycle-item" data-stage="real">Reale Situation</div><div class="cycle-item" data-stage="real-model">Reales Modell</div><div class="cycle-item" data-stage="math-model">Mathematisches Modell</div><div class="cycle-item" data-stage="solution">Mathematische Lösung</div><div class="cycle-item" data-stage="review">Prüfen und bewerten</div></div></section>
+        <button class="reset" id="resetButton" type="button">Eingaben zurücksetzen</button>
+      </aside>
+
+      <main id="lernweg">
+        <section id="auftrag" class="step active" data-stage="real" aria-labelledby="auftrag-title">
+          <p class="step-kicker">Schritt 1 · Reale Situation</p><h2 id="auftrag-title" tabindex="-1">Die Anfrage verstehen</h2>
+          <img class="context-image" src="Basketballwurf.png" alt="Basketball fliegt in einer leeren Sporthalle auf einen Korb zu">
+          <p class="caption">Wir betrachten die Flugbahn des Ballmittelpunkts von der Abgabe bis zur Korbebene.</p>
+          <div class="card gold"><h3>Die Aufgabe</h3><p>Ein Ball wird in 2,15&nbsp;m Höhe losgelassen. Nach 3,00&nbsp;m waagerechter Entfernung erreicht sein Mittelpunkt mit 3,35&nbsp;m den höchsten Punkt. Die Korbebene liegt 4,50&nbsp;m von der Abgabe entfernt. Die Oberkante des Rings liegt 3,05&nbsp;m über dem Boden.</p></div>
+          <label class="field" for="frage">Formuliert die Frage, die ihr mit Mathematik klären wollt.</label>
+          <textarea id="frage" data-save required placeholder="Wir wollen herausfinden, ob …"></textarea><p class="validation" aria-live="polite"></p>
+          <details><summary>Hinweis zur Modellgröße</summary><div>Die Funktion beschreibt die Höhe des Ballmittelpunkts in Abhängigkeit von der waagerechten Entfernung zur Abgabe.</div></details>
+          <div class="actions"><span></span><button class="next" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section id="vereinfachen" class="step" data-stage="real-model" aria-labelledby="vereinfachen-title">
+          <p class="step-kicker">Schritt 2 · Reales Modell</p><h2 id="vereinfachen-title" tabindex="-1">Die Wirklichkeit vereinfachen</h2>
+          <div class="card"><h3>Passende Funktionsart</h3><div class="choices">
+            <label class="choice"><input type="radio" name="funktionsart" value="linear" data-save required><span>lineare Funktion</span></label>
+            <label class="choice"><input type="radio" name="funktionsart" value="quadratisch" data-save required><span>quadratische Funktion</span></label>
+          </div></div>
+          <label class="field" for="annahmen">Notiert mindestens zwei sinnvolle Vereinfachungen des Modells.</label>
+          <textarea id="annahmen" data-save required placeholder="Wir nehmen an, dass …"></textarea><p class="validation" aria-live="polite"></p>
+          <details><summary>Hilfe zu Modellannahmen</summary><div>Denkt daran, was wir beim Ball, bei der Bewegung und bei äußeren Einflüssen nicht genauer untersuchen.</div></details>
+          <div class="actions"><button class="back" type="button" data-back>Zurück</button><button class="next" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section id="punkte" class="step" data-stage="math-model" aria-labelledby="punkte-title">
+          <p class="step-kicker">Schritt 3 · Mathematisches Modell</p><h2 id="punkte-title" tabindex="-1">Skizze und Punkte festhalten</h2>
+          <div class="card green"><h3>Begleitblatt</h3><p>Zeichnet ein Koordinatensystem, skizziert die Flugbahn und beschriftet Abgabepunkt, Scheitelpunkt und Korbpunkt. Legt den Ursprung am Boden senkrecht unter der Abgabe fest.</p></div>
+          <div class="inline-row">
+            <div><label class="field" for="sx">Scheitelpunkt S</label><div class="inline-row"><input id="sx" type="text" inputmode="decimal" data-save required aria-label="x-Koordinate von S" placeholder="x"><input id="sy" type="text" inputmode="decimal" data-save required aria-label="y-Koordinate von S" placeholder="y"></div></div>
+            <div><label class="field" for="px">Abgabepunkt P</label><div class="inline-row"><input id="px" type="text" inputmode="decimal" data-save required aria-label="x-Koordinate von P" placeholder="x"><input id="py" type="text" inputmode="decimal" data-save required aria-label="y-Koordinate von P" placeholder="y"></div></div>
+          </div>
+          <button class="check" id="checkPoints" type="button">Punkte prüfen</button><p class="feedback" id="pointsFeedback" aria-live="polite"></p><p class="validation" aria-live="polite"></p>
+          <details><summary>Hilfe zur Übersetzung</summary><div>Die waagerechte Entfernung ist die x-Koordinate. Die Höhe über dem Boden ist die y-Koordinate.</div></details>
+          <div class="actions"><button class="back" type="button" data-back>Zurück</button><button class="next" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section id="term" class="step" data-stage="solution" aria-labelledby="term-title">
+          <p class="step-kicker">Schritt 4 · Mathematische Lösung</p><h2 id="term-title" tabindex="-1">Den Funktionsterm bestimmen</h2>
+          <div class="equation">f(x) = a · (x − d)² + e</div>
+          <ol><li>Setzt den Scheitelpunkt in die Scheitelpunktform ein.</li><li>Setzt den Abgabepunkt ein.</li><li>Löst die Gleichung nach <em>a</em> auf.</li><li>Schreibt den vollständigen Funktionsterm auf das Begleitblatt.</li></ol>
+          <div class="check-line"><div><label class="field" for="aWert">Euer Wert für a</label><input id="aWert" type="text" inputmode="decimal" data-save required placeholder="a = …"></div><button class="check" id="checkA" type="button">a prüfen</button></div><p class="feedback" id="aFeedback" aria-live="polite"></p>
+          <label class="field" for="termText">Euer vollständiger Term</label><input id="termText" type="text" data-save required placeholder="f(x) = …"><p class="validation" aria-live="polite"></p>
+          <details><summary>Hilfe 1</summary><div>Mit S(3|3,35) beginnt der Term mit f(x) = a · (x − 3)² + 3,35.</div></details>
+          <details><summary>Hilfe 2</summary><div>Setzt P(0|2,15) ein: 2,15 = a · (0 − 3)² + 3,35.</div></details>
+          <div class="actions"><button class="back" type="button" data-back>Zurück</button><button class="next" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section id="korb" class="step" data-stage="solution" aria-labelledby="korb-title">
+          <p class="step-kicker">Schritt 5 · Mathematische Lösung</p><h2 id="korb-title" tabindex="-1">Die Höhe am Korb berechnen</h2>
+          <p>Berechnet mit eurem Modell die Höhe des Ballmittelpunkts bei x = 4,50&nbsp;m und haltet den Rechenweg auf dem Begleitblatt fest.</p>
+          <svg class="graph" viewBox="0 0 720 420" role="img" aria-label="Koordinatensystem mit modellierter Flugbahn, Abgabepunkt, Scheitelpunkt und Korb">
+            <g id="grid"></g><line class="axis" x1="60" y1="370" x2="680" y2="370"/><line class="axis" x1="60" y1="370" x2="60" y2="35"/>
+            <path class="curve" id="curve" d=""/><line class="rim" x1="600" y1="112" x2="648" y2="112"/>
+            <circle class="point" cx="60" cy="183" r="7"/><circle class="point" cx="420" cy="82" r="7"/><circle class="point" cx="600" cy="108" r="7"/>
+            <text x="70" y="177">P(0|2,15)</text><text x="430" y="74">S(3|3,35)</text><text x="608" y="102">K(4,5|3,05)</text><text x="670" y="393">x in m</text><text x="14" y="30">y in m</text>
+          </svg>
+          <div class="check-line"><div><label class="field" for="korbHoehe">Modellhöhe bei x = 4,50</label><input id="korbHoehe" type="text" inputmode="decimal" data-save required placeholder="… m"></div><button class="check" id="checkHeight" type="button">Höhe prüfen</button></div><p class="feedback" id="heightFeedback" aria-live="polite"></p><p class="validation" aria-live="polite"></p>
+          <div class="actions"><button class="back" type="button" data-back>Zurück</button><button class="next" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section id="bewerten" class="step" data-stage="review" aria-labelledby="bewerten-title">
+          <p class="step-kicker">Schritt 6 · Prüfen und bewerten</p><h2 id="bewerten-title" tabindex="-1">Das Ergebnis im Kontext beurteilen</h2>
+          <div class="card gold"><p><strong>Wichtig:</strong> Die Rechnung beschreibt die Höhe des Ballmittelpunkts in der Korbebene. Ein echter Treffer hängt zusätzlich von Ballgröße, seitlicher Richtung, Geschwindigkeit und Ringkontakt ab.</p></div>
+          <label class="field">Welche Aussage ist durch das Modell gestützt?</label><div class="choices">
+            <label class="choice"><input type="radio" name="urteil" value="sicher" data-save required><span>Der Ball trifft in Wirklichkeit sicher.</span></label>
+            <label class="choice"><input type="radio" name="urteil" value="plausibel" data-save required><span>Die berechnete Höhe passt zur Ringhöhe; ein Treffer erscheint im vereinfachten Modell plausibel.</span></label>
+            <label class="choice"><input type="radio" name="urteil" value="unmoeglich" data-save required><span>Mit einer Parabel kann man grundsätzlich keine Flugbahn beschreiben.</span></label>
+          </div>
+          <label class="field" for="begruendung">Begründet euer Urteil mit Rechnung und Modellgrenze.</label><textarea id="begruendung" data-save required placeholder="Unser Modell ergibt … Deshalb … Allerdings …"></textarea>
+          <label class="choice"><input type="checkbox" id="partnercheck" data-save required><span>Wir haben Term, Einheiten und Antwort zu zweit geprüft und Korrekturen auf dem Begleitblatt markiert.</span></label><p class="validation" aria-live="polite"></p>
+          <div class="actions"><button class="back" type="button" data-back>Zurück</button><button class="next" type="button" data-next>Zum Zusatz</button></div>
+        </section>
+
+        <section id="zusatz" class="step" data-stage="review" aria-labelledby="zusatz-title">
+          <p class="step-kicker">Schritt 7 · Zusatz</p><h2 id="zusatz-title" tabindex="-1">Ein höherer Scheitelpunkt</h2>
+          <p>Der Abgabepunkt bleibt P(0|2,15), der neue Scheitelpunkt lautet S<sub>neu</sub>(3|3,55). Bestimmt den neuen Term und prüft erneut die Höhe bei x = 4,50&nbsp;m.</p>
+          <label class="field" for="zusatzTerm">Neuer Funktionsterm</label><input id="zusatzTerm" type="text" data-save required placeholder="g(x) = …">
+          <label class="field" for="zusatzVergleich">Vergleich mit dem ersten Modell</label><textarea id="zusatzVergleich" data-save required placeholder="Der neue Wert für a …; am Korb …"></textarea><p class="validation" aria-live="polite"></p>
+          <details><summary>Kontrollhilfe</summary><div>Für a gilt näherungsweise −0,1556. Bei x = 4,50 liegt der Ballmittelpunkt im neuen Modell bei 3,20&nbsp;m.</div></details>
+          <div class="actions"><button class="back" type="button" data-back>Zurück</button><button class="next" type="button" id="finishButton">Lernweg abschließen</button></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="visually-hidden" id="live" aria-live="polite"></div>
+  <script>
+    const CONFIG={key:"hge-basketballwurf-v1",steps:[
+      {id:"auftrag",label:"Anfrage"},{id:"vereinfachen",label:"Vereinfachen"},{id:"punkte",label:"Punkte"},{id:"term",label:"Term"},{id:"korb",label:"Korb prüfen"},{id:"bewerten",label:"Bewerten"},{id:"zusatz",label:"Zusatz"}
+    ]};
+    const steps=[...document.querySelectorAll(".step")],nav=document.getElementById("stepNav"),bar=document.getElementById("progressBar"),progressText=document.getElementById("progressText"),live=document.getElementById("live");
+    let current=0,unlocked=0,pointCheck=false,aCheck=false,heightCheck=false,finished=false;
+    const parseNum=v=>Number(String(v).trim().replace(",",".")); const near=(a,b,t=.015)=>Number.isFinite(a)&&Math.abs(a-b)<=t;
+    function buildNav(){CONFIG.steps.forEach((s,i)=>{const b=document.createElement("button");b.type="button";b.dataset.index=i;b.innerHTML=`<span class="number">${i+1}</span><span>${s.label}</span><span class="state">${i===0?"•":"🔒"}</span>`;b.addEventListener("click",()=>{if(i<=unlocked)show(i)});nav.appendChild(b)})}
+    function updateUI(){[...nav.children].forEach((b,i)=>{b.disabled=i>unlocked;b.classList.toggle("active",i===current);b.querySelector(".state").textContent=i<unlocked?"✓":i===current?"•":i<=unlocked?"○":"🔒"});bar.style.width=`${((finished?7:current+1)/7)*100}%`;progressText.textContent=finished?"Lernweg abgeschlossen":`Schritt ${current+1} von 7`;document.querySelectorAll(".cycle-item").forEach(el=>el.classList.toggle("current",el.dataset.stage===steps[current].dataset.stage))}
+    function show(i){current=i;steps.forEach((s,j)=>s.classList.toggle("active",j===i));updateUI();steps[i].querySelector("h2").focus();window.scrollTo({top:0,behavior:"smooth"});save()}
+    function fieldsFor(step){return [...step.querySelectorAll("[required]")]}
+    function value(field){return field.type==="checkbox"||field.type==="radio"?field.checked:field.value.trim()}
+    function validate(step){step.querySelectorAll(".invalid").forEach(e=>e.classList.remove("invalid"));const required=fieldsFor(step);let ok=true;const groups=[...new Set(required.filter(f=>f.type==="radio").map(f=>f.name))];groups.forEach(name=>{if(!required.some(f=>f.type==="radio"&&f.name===name&&f.checked)){required.find(f=>f.name===name).closest(".choices").classList.add("invalid");ok=false}});required.filter(f=>f.type!=="radio").forEach(f=>{if(!value(f)){f.classList.add("invalid");ok=false}});if(step.id==="vereinfachen"&&document.querySelector('input[name="funktionsart"]:checked')?.value!=="quadratisch")ok=false;if(step.id==="punkte"&&!pointCheck)ok=false;if(step.id==="term"&&!aCheck)ok=false;if(step.id==="korb"&&!heightCheck)ok=false;if(step.id==="bewerten"&&document.querySelector('input[name="urteil"]:checked')?.value!=="plausibel")ok=false;const msg=step.querySelector(".validation");if(msg)msg.textContent=ok?"":"Ergänzt oder prüft zuerst die markierten Angaben.";return ok}
+    function next(){if(!validate(steps[current])){live.textContent="Dieser Schritt ist noch nicht vollständig.";return}unlocked=Math.max(unlocked,Math.min(current+1,6));show(Math.min(current+1,6))}
+    function save(){const data={current,unlocked,pointCheck,aCheck,heightCheck,finished,fields:{}};document.querySelectorAll("[data-save]").forEach(f=>{data.fields[f.id||`${f.name}:${f.value}`]=f.type==="checkbox"||f.type==="radio"?f.checked:f.value});try{localStorage.setItem(CONFIG.key,JSON.stringify(data))}catch(e){}}
+    function restore(){try{const d=JSON.parse(localStorage.getItem(CONFIG.key)||"null");if(!d)return;current=Math.min(d.current||0,6);unlocked=Math.min(d.unlocked||0,6);pointCheck=!!d.pointCheck;aCheck=!!d.aCheck;heightCheck=!!d.heightCheck;finished=!!d.finished;document.querySelectorAll("[data-save]").forEach(f=>{const k=f.id||`${f.name}:${f.value}`;if(k in (d.fields||{})){if(f.type==="checkbox"||f.type==="radio")f.checked=!!d.fields[k];else f.value=d.fields[k]}})}catch(e){}}
+    document.addEventListener("input",e=>{if(e.target.matches("[data-save]"))save()});document.addEventListener("change",e=>{if(e.target.matches("[data-save]"))save()});
+    document.querySelectorAll("[data-next]").forEach(b=>b.addEventListener("click",next));document.querySelectorAll("[data-back]").forEach(b=>b.addEventListener("click",()=>show(Math.max(0,current-1))));
+    document.getElementById("checkPoints").addEventListener("click",()=>{const sxValue=document.getElementById("sx").value,syValue=document.getElementById("sy").value,pxValue=document.getElementById("px").value,pyValue=document.getElementById("py").value,feedback=document.getElementById("pointsFeedback");const ok=near(parseNum(sxValue),3,.001)&&near(parseNum(syValue),3.35,.001)&&near(parseNum(pxValue),0,.001)&&near(parseNum(pyValue),2.15,.001);pointCheck=ok;feedback.className=`feedback ${ok?"ok":"no"}`;feedback.textContent=ok?"Die Punkte passen zu eurer Ursprungslage.":"Prüft: x beschreibt die Entfernung von der Abgabe, y die Höhe über dem Boden.";save()});
+    document.getElementById("checkA").addEventListener("click",()=>{const input=document.getElementById("aWert"),feedback=document.getElementById("aFeedback"),v=parseNum(input.value),ok=near(v,-2/15,.002);aCheck=ok;feedback.className=`feedback ${ok?"ok":"no"}`;feedback.textContent=ok?"a passt. Die Parabel ist nach unten geöffnet.":"Noch nicht passend. Setzt P(0|2,15) vollständig ein und löst nach a auf.";save()});
+    document.getElementById("checkHeight").addEventListener("click",()=>{const input=document.getElementById("korbHoehe"),feedback=document.getElementById("heightFeedback"),ok=near(parseNum(input.value),3.05,.015);heightCheck=ok;feedback.className=`feedback ${ok?"ok":"no"}`;feedback.textContent=ok?"Die Modellhöhe stimmt mit der Ringhöhe überein.":"Setzt x = 4,50 in euren vollständigen Term ein und achtet auf die Klammer.";save()});
+    document.getElementById("finishButton").addEventListener("click",()=>{if(!validate(steps[current]))return;finished=true;updateUI();save();live.textContent="Lernweg abgeschlossen. Gebt euer Begleitblatt ab.";alert("Geschafft. Prüft, ob euer Begleitblatt Name, Skizze, Rechnung und Modellkritik enthält.")});
+    document.getElementById("resetButton").addEventListener("click",()=>{if(!confirm("Wirklich alle Eingaben auf diesem Gerät löschen?"))return;localStorage.removeItem(CONFIG.key);location.reload()});
+    function draw(){const gridElement=document.getElementById("grid"),curveElement=document.getElementById("curve"),x=v=>60+v*120,y=v=>370-v*86;let d="";for(let i=0;i<=5;i+=.05){const h=(-2/15)*(i-3)**2+3.35;d+=(i===0?"M":"L")+`${x(i).toFixed(1)} ${y(h).toFixed(1)} `}curveElement.setAttribute("d",d);for(let i=1;i<=5;i++){gridElement.insertAdjacentHTML("beforeend",`<line class="grid" x1="${x(i)}" y1="35" x2="${x(i)}" y2="370"/><text x="${x(i)-4}" y="394">${i}</text>`)}for(let i=1;i<=4;i++){gridElement.insertAdjacentHTML("beforeend",`<line class="grid" x1="60" y1="${y(i)}" x2="680" y2="${y(i)}"/><text x="38" y="${y(i)+5}">${i}</text>`)}}
+    buildNav();restore();draw();show(current);
+  </script>
+</body>
+</html>
