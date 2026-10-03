@@ -972,8 +972,12 @@
           <div class="card gold">
             <h3>Neue Perspektive</h3>
             <p>Wechsle zur anderen Ursprungslage: von der Bodenmitte zum linken Fußpunkt oder umgekehrt. Breite und Höhe des Bogens bleiben unverändert.</p>
-            <label class="prompt" for="schnellPunkte">Notiere die drei charakteristischen Punkte im neuen Koordinatensystem.</label>
-            <input type="text" id="schnellPunkte" data-save required placeholder="A( … | … ), S( … | … ), B( … | … )">
+            <p class="prompt">Notiere die drei charakteristischen Punkte im neuen Koordinatensystem.</p>
+            <div class="point-grid">
+              <div class="point-entry"><span class="prompt">Scheitelpunkt</span><div class="coordinate-input"><span aria-hidden="true">S(</span><input type="text" id="schnellSx" data-save required inputmode="decimal" autocomplete="off" aria-label="x-Koordinate des neuen Scheitelpunkts S"><span aria-hidden="true">|</span><input type="text" id="schnellSy" data-save required inputmode="decimal" autocomplete="off" aria-label="y-Koordinate des neuen Scheitelpunkts S"><span aria-hidden="true">)</span></div></div>
+              <div class="point-entry"><span class="prompt">Fußpunkt A</span><div class="coordinate-input"><span aria-hidden="true">A(</span><input type="text" id="schnellAx" data-save required inputmode="decimal" autocomplete="off" aria-label="x-Koordinate des neuen Fußpunkts A"><span aria-hidden="true">|</span><input type="text" id="schnellAy" data-save required inputmode="decimal" autocomplete="off" aria-label="y-Koordinate des neuen Fußpunkts A"><span aria-hidden="true">)</span></div></div>
+              <div class="point-entry"><span class="prompt">Fußpunkt B</span><div class="coordinate-input"><span aria-hidden="true">B(</span><input type="text" id="schnellBx" data-save required inputmode="decimal" autocomplete="off" aria-label="x-Koordinate des neuen Fußpunkts B"><span aria-hidden="true">|</span><input type="text" id="schnellBy" data-save required inputmode="decimal" autocomplete="off" aria-label="y-Koordinate des neuen Fußpunkts B"><span aria-hidden="true">)</span></div></div>
+            </div>
           </div>
 
           <div class="card navy">
